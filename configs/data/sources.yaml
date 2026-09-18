@@ -1,0 +1,72 @@
+version: 1
+sources:
+  - name: gujilab-classical
+    kind: huggingface
+    dataset: gujilab/chinese-classical-corpus
+    config: corpus
+    split: train
+    category: classical
+    license: CC0-1.0
+    text_fields: [content]
+    mode: corpus
+    revision: 1979f15b4b749b3601fd9ee3e4111a725c079439
+    enabled: true
+    notes: "Raw Classical Chinese corpus."
+
+  - name: gujilab-translate
+    kind: huggingface
+    dataset: gujilab/chinese-classical-corpus
+    config: translate
+    split: train
+    category: classical
+    license: CC0-1.0
+    mode: instruction
+    revision: 1979f15b4b749b3601fd9ee3e4111a725c079439
+    enabled: true
+    notes: "Source-grounded translation rows for SFT and preference construction."
+
+  - name: gujilab-punctuate
+    kind: huggingface
+    dataset: gujilab/chinese-classical-corpus
+    config: punctuate
+    split: train
+    category: classical
+    license: CC0-1.0
+    mode: instruction
+    revision: 1979f15b4b749b3601fd9ee3e4111a725c079439
+    enabled: true
+    notes: "Punctuation restoration; used for CPT auxiliary data, not one of the four final tasks."
+
+  - name: fineweb2-chinese
+    kind: huggingface
+    dataset: HuggingFaceFW/fineweb-2
+    config: cmn_Hani
+    split: train
+    category: general_zh
+    license: ODC-By-1.0
+    text_fields: [text]
+    revision: main
+    streaming: true
+    enabled: true
+
+  - name: fineweb-english
+    kind: huggingface
+    dataset: HuggingFaceFW/fineweb
+    config: sample-10BT
+    split: train
+    category: general_en
+    license: ODC-By-1.0
+    text_fields: [text]
+    revision: main
+    streaming: true
+    enabled: true
+
+  - name: cci3-hq
+    kind: huggingface
+    dataset: BAAI/CCI3-HQ
+    split: train
+    category: general_zh
+    license: gated-user-agreement
+    text_fields: [text]
+    enabled: false
+    notes: "Disabled until the user agreement and access are reviewed."

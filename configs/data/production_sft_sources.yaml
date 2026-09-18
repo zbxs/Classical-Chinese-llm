@@ -1,0 +1,42 @@
+version: 1
+sources:
+  - name: historytrans-bidirectional
+    kind: huggingface
+    dataset: HistoryTrans/Dataset
+    split: train
+    category: classical
+    license: MIT
+    mode: translation_pair
+    classical_field: inputs
+    modern_field: truth
+    revision: 89087a1ea7ba831a34b9d3101281a6f1ff9334ea
+    streaming: true
+    max_documents: 40000
+    enabled: true
+
+  - name: poetrymteb-appreciation
+    kind: huggingface
+    dataset: PoetryMTEB/Appreciation-of-Chinese-Classical-Poetry
+    split: test
+    category: classical
+    license: CC-BY-NC-4.0
+    mode: poetry_appreciation
+    corpus_config: corpus
+    analysis_config: analysis
+    revision: a44edb49f175381e6343b18d561e3d3e734b51ec
+    streaming: true
+    max_documents: 5574
+    enabled: true
+
+  - name: troye-ancient-creation
+    kind: huggingface
+    dataset: TroyeML/Ancient_Chinese_Study_252k
+    split: train
+    category: classical
+    license: Apache-2.0
+    mode: generic_sft
+    work_fields: [title, id]
+    revision: fcb5b55cc9b1d934063d833f31923b7e8acfc62d
+    streaming: true
+    max_documents: 160000
+    enabled: true

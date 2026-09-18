@@ -1,0 +1,29 @@
+{
+  "project_root": "/root/autodl-tmp/Classical-Chinese-llm",
+  "python": "3.12.3 | packaged by Anaconda, Inc. | (main, May  6 2024, 19:46:43) [GCC 11.2.0]",
+  "executable": "/root/autodl-tmp/Classical-Chinese-llm/.venv/bin/python",
+  "isolated_venv": true,
+  "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+  "disk_free_gb": 45.19,
+  "cache_environment": {
+    "PIP_CACHE_DIR": "/root/autodl-tmp/Classical-Chinese-llm/.cache/pip",
+    "HF_HOME": "/root/autodl-tmp/Classical-Chinese-llm/.cache/huggingface",
+    "TORCH_HOME": "/root/autodl-tmp/Classical-Chinese-llm/.cache/torch",
+    "TRITON_CACHE_DIR": "/root/autodl-tmp/Classical-Chinese-llm/.cache/triton",
+    "PYTHONNOUSERSITE": "1"
+  },
+  "torch": {
+    "version": "2.5.1+cu124",
+    "cuda_runtime": "12.4",
+    "cuda_available": true,
+    "bf16_supported": true,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "vram_gb": 23.52
+  },
+  "transformers": "5.17.0",
+  "datasets": "4.8.5",
+  "accelerate": "1.15.0",
+  "peft": "0.20.0",
+  "trl": "0.29.1",
+  "bitsandbytes": "0.50.2"
+}

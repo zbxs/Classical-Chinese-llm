@@ -1,0 +1,39 @@
+{
+  "sft": {
+    "all_finite": true,
+    "parameters": 17596416,
+    "policy_vs_sft": {
+      "equal_tensors": 336,
+      "tensor_count": 336,
+      "delta_l2": 0.0
+    }
+  },
+  "dpo": {
+    "all_finite": true,
+    "parameters": 17596416,
+    "policy_vs_sft": {
+      "equal_tensors": 0,
+      "tensor_count": 336,
+      "delta_l2": 3.073923053040978
+    },
+    "reference_vs_sft": {
+      "equal_tensors": 336,
+      "tensor_count": 336,
+      "delta_l2": 0.0
+    }
+  },
+  "grpo": {
+    "all_finite": true,
+    "parameters": 17596416,
+    "policy_vs_sft": {
+      "equal_tensors": 0,
+      "tensor_count": 336,
+      "delta_l2": 0.31028993549080003
+    },
+    "reference_vs_sft": {
+      "equal_tensors": 336,
+      "tensor_count": 336,
+      "delta_l2": 0.0
+    }
+  }
+}

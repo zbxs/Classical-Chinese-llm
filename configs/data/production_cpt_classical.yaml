@@ -1,0 +1,12 @@
+version: 1
+sources:
+  - name: gujilab-classical-full
+    kind: huggingface_file
+    dataset: gujilab/chinese-classical-corpus
+    filename: corpus.jsonl
+    category: classical
+    license: CC0-1.0
+    text_fields: [content]
+    mode: corpus
+    revision: 1979f15b4b749b3601fd9ee3e4111a725c079439
+    enabled: true

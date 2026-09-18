@@ -1,0 +1,34 @@
+.venv/
+.runtime/
+.cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+transfer/
+.ruff_cache/
+*.invalid-none-prompt.json
+htmlcov/
+
+# Large or generated artifacts
+data/staged/
+outputs/
+checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Keep data private until source-by-source licence clearance is complete.
+data/**/*.jsonl
+scripts/ssh/
+configs/local_resources.yaml
+prompt.txt
+# Transient Hugging Face/Arrow caches remain private as well.
+data/raw/**/.cache/
+
+# Keep empty directories/documentation
+!data/**/.gitkeep
+!outputs/.gitkeep
+!reports/generated/.gitkeep

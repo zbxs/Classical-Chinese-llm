@@ -1,0 +1,56 @@
+{
+  "checked_at": "2026-09-18T06:20:01.197962+00:00",
+  "models": {
+    "base": {
+      "rows": 400,
+      "tasks": {
+        "appreciation": 100,
+        "modern_to_old": 100,
+        "creation": 100,
+        "old_to_modern": 100
+      },
+      "distinct_responses": 399
+    },
+    "cpt": {
+      "rows": 400,
+      "tasks": {
+        "appreciation": 100,
+        "modern_to_old": 100,
+        "creation": 100,
+        "old_to_modern": 100
+      },
+      "distinct_responses": 398
+    },
+    "sft": {
+      "rows": 400,
+      "tasks": {
+        "appreciation": 100,
+        "modern_to_old": 100,
+        "creation": 100,
+        "old_to_modern": 100
+      },
+      "distinct_responses": 400
+    },
+    "dpo": {
+      "rows": 400,
+      "tasks": {
+        "appreciation": 100,
+        "modern_to_old": 100,
+        "creation": 100,
+        "old_to_modern": 100
+      },
+      "distinct_responses": 400
+    },
+    "grpo": {
+      "rows": 400,
+      "tasks": {
+        "appreciation": 100,
+        "modern_to_old": 100,
+        "creation": 100,
+        "old_to_modern": 100
+      },
+      "distinct_responses": 400
+    }
+  },
+  "human_review": "not performed; 2000 populated question/response forms"
+}

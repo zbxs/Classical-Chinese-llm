@@ -1,0 +1,729 @@
+{
+  "runs": [
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/.cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "config": {
+        "stage": "cpt",
+        "model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/pretrain/classical_05/train.jsonl",
+        "validation_path": "data/final/pretrain/validation_200k.jsonl",
+        "output_dir": "outputs/cpt/qwen2.5-0.5b-classical05",
+        "seed": 20260912,
+        "max_seq_length": 1024,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "lora_dropout": 0.05,
+        "learning_rate": 0.0001,
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 4,
+        "per_device_eval_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "gradient_checkpointing": true,
+        "logging_steps": 10,
+        "eval_steps": 250,
+        "save_steps": 250,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 6367.0923,
+        "train_samples_per_second": 7.674,
+        "train_steps_per_second": 0.48,
+        "total_flos": 1.1272881636350362e+17,
+        "train_loss": 3.6009233342953264,
+        "epoch": 1.0,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/cpt/qwen2.5-0.5b-classical05/checkpoint-3054"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/cpt/qwen2.5-0.5b-classical05/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/.cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "config": {
+        "stage": "cpt",
+        "model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/pretrain/classical_20/train.jsonl",
+        "validation_path": "data/final/pretrain/validation_200k.jsonl",
+        "output_dir": "outputs/cpt/qwen2.5-0.5b-classical20",
+        "seed": 20260912,
+        "max_seq_length": 1024,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "lora_dropout": 0.05,
+        "learning_rate": 0.0001,
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 4,
+        "per_device_eval_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "gradient_checkpointing": true,
+        "logging_steps": 10,
+        "eval_steps": 250,
+        "save_steps": 250,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 6319.566,
+        "train_samples_per_second": 7.731,
+        "train_steps_per_second": 0.483,
+        "total_flos": 1.1270805301808333e+17,
+        "train_loss": 3.732369432905256,
+        "epoch": 1.0,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/cpt/qwen2.5-0.5b-classical20/checkpoint-3054"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/cpt/qwen2.5-0.5b-classical20/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/.cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "config": {
+        "stage": "cpt",
+        "model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/pretrain/classical_50/train.jsonl",
+        "validation_path": "data/final/pretrain/validation_200k.jsonl",
+        "output_dir": "outputs/cpt/qwen2.5-0.5b-classical50",
+        "seed": 20260912,
+        "max_seq_length": 1024,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "lora_dropout": 0.05,
+        "learning_rate": 0.0001,
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 4,
+        "per_device_eval_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "gradient_checkpointing": true,
+        "logging_steps": 10,
+        "eval_steps": 250,
+        "save_steps": 250,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 6301.4562,
+        "train_samples_per_second": 7.753,
+        "train_steps_per_second": 0.485,
+        "total_flos": 1.127057459797033e+17,
+        "train_loss": 3.8980579882099025,
+        "epoch": 1.0,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/cpt/qwen2.5-0.5b-classical50/checkpoint-3054"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/cpt/qwen2.5-0.5b-classical50/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/outputs/sft/qwen2.5-0.5b-classical/best",
+      "config": {
+        "stage": "dpo",
+        "model_name_or_path": "outputs/sft/qwen2.5-0.5b-classical/best",
+        "fallback_model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/preferences/train.jsonl",
+        "validation_path": "data/final/preferences/validation.jsonl",
+        "output_dir": "outputs/dpo/qwen2.5-0.5b-classical",
+        "seed": 20260912,
+        "max_length": 1024,
+        "max_prompt_length": 512,
+        "beta": 0.1,
+        "loss_type": "sigmoid",
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "learning_rate": 5e-05,
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 1,
+        "per_device_eval_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "gradient_checkpointing": true,
+        "logging_steps": 10,
+        "eval_steps": 200,
+        "save_steps": 200,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 13669.3039,
+        "train_samples_per_second": 1.171,
+        "train_steps_per_second": 0.073,
+        "total_flos": 9553256192392704.0,
+        "train_loss": 0.06780206226045034,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/dpo/qwen2.5-0.5b-classical/checkpoint-800"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/dpo/qwen2.5-0.5b-classical/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/outputs/sft/qwen2.5-0.5b-classical/best",
+      "config": {
+        "stage": "grpo",
+        "model_name_or_path": "outputs/sft/qwen2.5-0.5b-classical/best",
+        "fallback_model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "reward_model_path": "outputs/reward/qwen2.5-0.5b-classical-rm/best",
+        "dataset_path": "data/final/preferences/train.jsonl",
+        "validation_path": "data/final/preferences/validation.jsonl",
+        "output_dir": "outputs/grpo/qwen2.5-0.5b-classical",
+        "seed": 20260912,
+        "max_prompt_length": 512,
+        "max_completion_length": 128,
+        "num_generations": 2,
+        "generation_batch_size": 2,
+        "beta": 0.02,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "learning_rate": 1e-05,
+        "num_train_epochs": 1,
+        "per_device_train_batch_size": 1,
+        "gradient_accumulation_steps": 16,
+        "gradient_checkpointing": true,
+        "logging_steps": 5,
+        "save_steps": 100,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 206464.6872,
+        "train_samples_per_second": 0.078,
+        "train_steps_per_second": 0.01,
+        "total_flos": 0.0,
+        "train_loss": 0.011334750974464274,
+        "best_model_checkpoint": null
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/grpo/qwen2.5-0.5b-classical/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/.cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "config": {
+        "stage": "reward",
+        "model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/preferences/train.jsonl",
+        "validation_path": "data/final/preferences/validation.jsonl",
+        "output_dir": "outputs/reward/qwen2.5-0.5b-classical-rm",
+        "seed": 20260912,
+        "max_length": 1024,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 16,
+        "lora_alpha": 32,
+        "learning_rate": 0.0001,
+        "num_train_epochs": 2,
+        "per_device_train_batch_size": 4,
+        "per_device_eval_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "gradient_checkpointing": false,
+        "logging_steps": 10,
+        "eval_steps": 200,
+        "save_steps": 200,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 2587.9569,
+        "train_samples_per_second": 12.37,
+        "train_steps_per_second": 0.774,
+        "total_flos": 2.604530545385472e+16,
+        "train_loss": 0.019793801649025687,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/reward/qwen2.5-0.5b-classical-rm/checkpoint-1000"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/reward/qwen2.5-0.5b-classical-rm/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/outputs/cpt/qwen2.5-0.5b-classical05/best",
+      "config": {
+        "stage": "sft",
+        "model_name_or_path": "outputs/cpt/qwen2.5-0.5b-classical05/best",
+        "fallback_model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/sft/train.jsonl",
+        "validation_path": "data/final/sft/validation.jsonl",
+        "output_dir": "outputs/sft/qwen2.5-0.5b-classical",
+        "seed": 20260912,
+        "max_seq_length": 1024,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "lora_dropout": 0.05,
+        "learning_rate": 0.0002,
+        "num_train_epochs": 2,
+        "per_device_train_batch_size": 4,
+        "per_device_eval_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "gradient_checkpointing": true,
+        "logging_steps": 10,
+        "eval_steps": 250,
+        "save_steps": 250,
+        "save_total_limit": 3,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": "auto"
+      },
+      "metrics": {
+        "train_runtime": 31453.5455,
+        "train_samples_per_second": 6.359,
+        "train_steps_per_second": 0.397,
+        "total_flos": 8.234203883939635e+16,
+        "train_loss": 2.6760920413208007,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/sft/qwen2.5-0.5b-classical/checkpoint-12250"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/sft/qwen2.5-0.5b-classical/run_metadata.json"
+    },
+    {
+      "status": "complete",
+      "model_name_or_path": "/root/autodl-tmp/Classical-Chinese-llm/.cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "config": {
+        "stage": "cpt",
+        "model_name_or_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/pretrain/smoke_2m/train.jsonl",
+        "validation_path": "data/final/pretrain/validation_200k.jsonl",
+        "output_dir": "outputs/smoke/remote-cpt-4090d",
+        "seed": 20260912,
+        "max_seq_length": 1024,
+        "use_qlora": true,
+        "load_in_4bit": true,
+        "lora_r": 32,
+        "lora_alpha": 64,
+        "lora_dropout": 0.05,
+        "learning_rate": 0.0001,
+        "max_steps": 3,
+        "per_device_train_batch_size": 4,
+        "per_device_eval_batch_size": 4,
+        "gradient_accumulation_steps": 4,
+        "gradient_checkpointing": true,
+        "logging_steps": 1,
+        "eval_steps": 3,
+        "save_steps": 3,
+        "save_total_limit": 1,
+        "bf16": true,
+        "fp16": false,
+        "resume_from_checkpoint": null
+      },
+      "metrics": {
+        "train_runtime": 12.2002,
+        "train_samples_per_second": 3.934,
+        "train_steps_per_second": 0.246,
+        "total_flos": 110737842241536.0,
+        "train_loss": 4.247574329376221,
+        "epoch": 0.024539877300613498,
+        "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/smoke/remote-cpt-4090d/checkpoint-3"
+      },
+      "environment": {
+        "python": "3.12.3",
+        "torch": "2.5.1+cu124",
+        "cuda_runtime": "12.4",
+        "cuda_available": true,
+        "gpu": "NVIDIA GeForce RTX 4090 D"
+      },
+      "metadata_path": "outputs/smoke/remote-cpt-4090d/run_metadata.json"
+    }
+  ],
+  "evaluation_summaries": [
+    {
+      "path": "outputs/evaluation/base.scored.summary.json",
+      "data": {
+        "tasks": {
+          "appreciation": {
+            "chrf": 2.921111147935474,
+            "nonempty": 1.0,
+            "response_length": 553.37,
+            "count": 100
+          },
+          "modern_to_old": {
+            "chrf": 4.17620205064797,
+            "nonempty": 1.0,
+            "response_length": 670.36,
+            "count": 100
+          },
+          "creation": {
+            "chrf": 0.3586465894769968,
+            "nonempty": 1.0,
+            "response_length": 709.79,
+            "count": 100
+          },
+          "old_to_modern": {
+            "chrf": 6.534039227098939,
+            "nonempty": 1.0,
+            "response_length": 566.06,
+            "count": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "outputs/evaluation/cpt.scored.summary.json",
+      "data": {
+        "tasks": {
+          "appreciation": {
+            "chrf": 1.4340885849126,
+            "nonempty": 1.0,
+            "response_length": 524.93,
+            "count": 100
+          },
+          "modern_to_old": {
+            "chrf": 2.5354047543205827,
+            "nonempty": 1.0,
+            "response_length": 657.23,
+            "count": 100
+          },
+          "creation": {
+            "chrf": 0.4712568759121068,
+            "nonempty": 1.0,
+            "response_length": 613.0,
+            "count": 100
+          },
+          "old_to_modern": {
+            "chrf": 2.4435741613565107,
+            "nonempty": 1.0,
+            "response_length": 602.2,
+            "count": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "outputs/evaluation/dpo.scored.summary.json",
+      "data": {
+        "tasks": {
+          "appreciation": {
+            "chrf": 2.3850429413438037,
+            "nonempty": 1.0,
+            "response_length": 782.48,
+            "count": 100
+          },
+          "modern_to_old": {
+            "chrf": 5.173330192842329,
+            "nonempty": 1.0,
+            "response_length": 598.74,
+            "count": 100
+          },
+          "creation": {
+            "chrf": 0.6462069670370344,
+            "nonempty": 1.0,
+            "response_length": 1628.46,
+            "count": 100
+          },
+          "old_to_modern": {
+            "chrf": 5.260678356219724,
+            "nonempty": 1.0,
+            "response_length": 717.32,
+            "count": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "outputs/evaluation/grpo.scored.summary.json",
+      "data": {
+        "tasks": {
+          "appreciation": {
+            "chrf": 3.752096257565041,
+            "nonempty": 1.0,
+            "response_length": 612.45,
+            "count": 100
+          },
+          "modern_to_old": {
+            "chrf": 5.64484879402339,
+            "nonempty": 1.0,
+            "response_length": 639.64,
+            "count": 100
+          },
+          "creation": {
+            "chrf": 1.3116908179641333,
+            "nonempty": 1.0,
+            "response_length": 443.22,
+            "count": 100
+          },
+          "old_to_modern": {
+            "chrf": 5.961185222630989,
+            "nonempty": 1.0,
+            "response_length": 589.61,
+            "count": 100
+          }
+        }
+      }
+    },
+    {
+      "path": "outputs/evaluation/sft.scored.summary.json",
+      "data": {
+        "tasks": {
+          "appreciation": {
+            "chrf": 3.3865460118464354,
+            "nonempty": 1.0,
+            "response_length": 678.9,
+            "count": 100
+          },
+          "modern_to_old": {
+            "chrf": 5.46459720794191,
+            "nonempty": 1.0,
+            "response_length": 776.9,
+            "count": 100
+          },
+          "creation": {
+            "chrf": 1.289502960185666,
+            "nonempty": 1.0,
+            "response_length": 509.43,
+            "count": 100
+          },
+          "old_to_modern": {
+            "chrf": 6.003413340236866,
+            "nonempty": 1.0,
+            "response_length": 595.83,
+            "count": 100
+          }
+        }
+      }
+    }
+  ],
+  "perplexity_results": [
+    {
+      "path": "outputs/evaluation/base.classical.ppl.json",
+      "data": {
+        "model_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/evaluation/perplexity/classical.jsonl",
+        "documents": 199,
+        "predicted_tokens": 1175562,
+        "mean_nll": 3.968376837264278,
+        "perplexity": 52.89859808393788,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/base.general_en.ppl.json",
+      "data": {
+        "model_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/evaluation/perplexity/general_en.jsonl",
+        "documents": 200,
+        "predicted_tokens": 119957,
+        "mean_nll": 2.9588044951990558,
+        "perplexity": 19.27491472276339,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/base.general_zh.ppl.json",
+      "data": {
+        "model_path": ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987",
+        "dataset_path": "data/final/evaluation/perplexity/general_zh.jsonl",
+        "documents": 200,
+        "predicted_tokens": 158993,
+        "mean_nll": 4.249984891805141,
+        "perplexity": 70.10435318845848,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/cpt.classical.ppl.json",
+      "data": {
+        "model_path": "outputs/cpt/qwen2.5-0.5b-classical05/best",
+        "dataset_path": "data/final/evaluation/perplexity/classical.jsonl",
+        "documents": 199,
+        "predicted_tokens": 1175562,
+        "mean_nll": 3.9893683239544253,
+        "perplexity": 54.02075496664495,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/cpt.general_en.ppl.json",
+      "data": {
+        "model_path": "outputs/cpt/qwen2.5-0.5b-classical05/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_en.jsonl",
+        "documents": 200,
+        "predicted_tokens": 119957,
+        "mean_nll": 3.04046401724367,
+        "perplexity": 20.91494587935999,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/cpt.general_zh.ppl.json",
+      "data": {
+        "model_path": "outputs/cpt/qwen2.5-0.5b-classical05/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_zh.jsonl",
+        "documents": 200,
+        "predicted_tokens": 158993,
+        "mean_nll": 3.6972258488819554,
+        "perplexity": 40.33525292112884,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/dpo.classical.ppl.json",
+      "data": {
+        "model_path": "outputs/dpo/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/classical.jsonl",
+        "documents": 199,
+        "predicted_tokens": 1175562,
+        "mean_nll": 6.047837730673398,
+        "perplexity": 423.1969741855403,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/dpo.general_en.ppl.json",
+      "data": {
+        "model_path": "outputs/dpo/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_en.jsonl",
+        "documents": 200,
+        "predicted_tokens": 119957,
+        "mean_nll": 3.3878330134472536,
+        "perplexity": 29.601736153584316,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/dpo.general_zh.ppl.json",
+      "data": {
+        "model_path": "outputs/dpo/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_zh.jsonl",
+        "documents": 200,
+        "predicted_tokens": 158993,
+        "mean_nll": 5.409327972156682,
+        "perplexity": 223.4813515140768,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/grpo.classical.ppl.json",
+      "data": {
+        "model_path": "outputs/grpo/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/classical.jsonl",
+        "documents": 199,
+        "predicted_tokens": 1175562,
+        "mean_nll": 4.264694477382486,
+        "perplexity": 71.14318080184293,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/grpo.general_en.ppl.json",
+      "data": {
+        "model_path": "outputs/grpo/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_en.jsonl",
+        "documents": 200,
+        "predicted_tokens": 119957,
+        "mean_nll": 3.2523250992664607,
+        "perplexity": 25.850374784082646,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/grpo.general_zh.ppl.json",
+      "data": {
+        "model_path": "outputs/grpo/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_zh.jsonl",
+        "documents": 200,
+        "predicted_tokens": 158993,
+        "mean_nll": 4.639313559269653,
+        "perplexity": 103.47329491521539,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/sft.classical.ppl.json",
+      "data": {
+        "model_path": "outputs/sft/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/classical.jsonl",
+        "documents": 199,
+        "predicted_tokens": 1175562,
+        "mean_nll": 4.266391731374555,
+        "perplexity": 71.26403137751747,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/sft.general_en.ppl.json",
+      "data": {
+        "model_path": "outputs/sft/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_en.jsonl",
+        "documents": 200,
+        "predicted_tokens": 119957,
+        "mean_nll": 3.25170072871059,
+        "perplexity": 25.83423960889757,
+        "max_length": 1024
+      }
+    },
+    {
+      "path": "outputs/evaluation/sft.general_zh.ppl.json",
+      "data": {
+        "model_path": "outputs/sft/qwen2.5-0.5b-classical/best",
+        "dataset_path": "data/final/evaluation/perplexity/general_zh.jsonl",
+        "documents": 200,
+        "predicted_tokens": 158993,
+        "mean_nll": 4.640239381081172,
+        "perplexity": 103.56913710810805,
+        "max_length": 1024
+      }
+    }
+  ]
+}

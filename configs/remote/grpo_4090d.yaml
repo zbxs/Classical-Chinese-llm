@@ -1,0 +1,30 @@
+stage: grpo
+model_name_or_path: outputs/sft/qwen2.5-0.5b-classical/best
+fallback_model_name_or_path: .cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987
+reward_model_path: outputs/reward/qwen2.5-0.5b-classical-rm/best
+dataset_path: data/final/preferences/train.jsonl
+validation_path: data/final/preferences/validation.jsonl
+output_dir: outputs/grpo/qwen2.5-0.5b-classical
+seed: 20260912
+max_prompt_length: 512
+# Reduced from 384 to control rollout runtime during this experiment.
+# This is a protocol change, not a verified token-coverage guarantee.
+max_completion_length: 128
+num_generations: 2
+generation_batch_size: 2
+beta: 0.02
+use_qlora: true
+load_in_4bit: true
+lora_r: 32
+lora_alpha: 64
+learning_rate: 0.00001
+num_train_epochs: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+gradient_checkpointing: true
+logging_steps: 5
+save_steps: 100
+save_total_limit: 3
+bf16: true
+fp16: false
+resume_from_checkpoint: auto

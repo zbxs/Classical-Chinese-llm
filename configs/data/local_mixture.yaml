@@ -1,0 +1,30 @@
+seed: 20260912
+tokenizer: .cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987
+output_dir: data/final/pretrain
+block_size: 1024
+eos_between_documents: true
+max_source_fraction: 0.25
+max_document_epochs: 2
+
+default_mixture:
+  classical: 0.20
+  general_zh: 0.60
+  general_en: 0.15
+  stem_technical: 0.05
+
+mixture_ablation:
+  - name: classical_05
+    total_tokens: 50000000
+    classical_fraction: 0.05
+  - name: classical_20
+    total_tokens: 50000000
+    classical_fraction: 0.20
+  - name: classical_50
+    total_tokens: 50000000
+    classical_fraction: 0.50
+
+scale_ablation:
+  models:
+    - Qwen/Qwen2.5-0.5B
+    - Qwen/Qwen2.5-1.5B
+  token_budgets: [50000000, 200000000, 500000000]

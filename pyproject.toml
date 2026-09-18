@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "classical-chinese-llm-lab"
+version = "0.1.0"
+description = "Reproducible local continual-pretraining, SFT, DPO and GRPO experiments for Classical Chinese."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "PyYAML>=6.0.2,<7",
+  "numpy>=2.0,<3",
+]
+
+[project.optional-dependencies]
+data = [
+  "datasets>=3.2,<5",
+  "huggingface-hub>=0.28,<2",
+  "pyarrow>=18,<24",
+  "datasketch>=1.6.5,<2",
+]
+train = [
+  "transformers>=4.48,<6",
+  "accelerate>=1.2,<3",
+  "peft>=0.14,<1",
+  "trl>=0.15,<1",
+  "bitsandbytes>=0.45,<1",
+  "safetensors>=0.5,<1",
+  "sentencepiece>=0.2,<1",
+]
+eval = [
+  "sacrebleu>=2.5,<3",
+  "scikit-learn>=1.6,<2",
+  "pandas>=2.2,<4",
+]
+dev = [
+  "pytest>=8.3,<10",
+  "ruff>=0.9,<1",
+]
+
+[project.scripts]
+classical-llm = "classical_llm.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+

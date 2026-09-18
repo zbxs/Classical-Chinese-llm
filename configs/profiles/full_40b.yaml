@@ -1,0 +1,16 @@
+profile: full_40b_cluster_only
+run_locally: false
+reason: "Requires multi-GPU compute and substantially more than the local 110 GB free workspace storage."
+model_sizes: ["0.5B", "1.5B"]
+total_tokens: 40000000000
+mixture:
+  classical: 0.20
+  general: 0.80
+checkpoint_every_tokens: 250000000
+validation_every_tokens: 50000000
+required_features:
+  - distributed_training
+  - resumable_streaming_dataset
+  - remote_object_storage
+  - sharded_optimizer_state
+

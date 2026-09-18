@@ -1,0 +1,16 @@
+seed: 20260912
+metric: token_weighted_perplexity
+datasets:
+  general_zh: data/final/evaluation/general_zh.jsonl
+  general_en: data/final/evaluation/general_en.jsonl
+  classical: data/final/evaluation/classical.jsonl
+max_length: 1024
+models:
+  base: .cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987
+  cpt: outputs/cpt/qwen2.5-0.5b-classical20/best
+  sft: outputs/sft/qwen2.5-0.5b-classical/best
+  dpo: outputs/dpo/qwen2.5-0.5b-classical/best
+  grpo: outputs/grpo/qwen2.5-0.5b-classical/best
+interpretation:
+  lower_is_better: true
+  forgetting_signal: "post-training general perplexity increases relative to the base model"

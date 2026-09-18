@@ -1,0 +1,29 @@
+{
+  "criterion": "minimum fixed-validation eval_loss",
+  "selected": {
+    "name": "classical_05",
+    "output": "outputs/cpt/qwen2.5-0.5b-classical05",
+    "best_eval_loss": 3.556421995162964,
+    "best_global_step": 3054
+  },
+  "candidates": [
+    {
+      "name": "classical_05",
+      "output": "outputs/cpt/qwen2.5-0.5b-classical05",
+      "best_eval_loss": 3.556421995162964,
+      "best_global_step": 3054
+    },
+    {
+      "name": "classical_20",
+      "output": "outputs/cpt/qwen2.5-0.5b-classical20",
+      "best_eval_loss": 3.558784246444702,
+      "best_global_step": 3054
+    },
+    {
+      "name": "classical_50",
+      "output": "outputs/cpt/qwen2.5-0.5b-classical50",
+      "best_eval_loss": 3.663447141647339,
+      "best_global_step": 3054
+    }
+  ]
+}

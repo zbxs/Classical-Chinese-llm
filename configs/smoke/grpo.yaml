@@ -1,0 +1,27 @@
+stage: grpo
+model_name_or_path: outputs/smoke/sft/best
+reward_model_path: outputs/smoke/reward/best
+dataset_path: data/examples/preferences/train.jsonl
+output_dir: outputs/smoke/grpo
+seed: 20260912
+max_completion_length: 32
+num_generations: 2
+generation_batch_size: 2
+beta: 0.0
+temperature: 0.8
+use_qlora: true
+load_in_4bit: true
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.0
+learning_rate: 0.00001
+max_steps: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 2
+gradient_checkpointing: true
+logging_steps: 1
+save_steps: 1
+save_total_limit: 1
+bf16: true
+fp16: false
+

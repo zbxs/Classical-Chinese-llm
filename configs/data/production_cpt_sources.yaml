@@ -1,0 +1,39 @@
+version: 1
+sources:
+  - name: gujilab-classical-full
+    kind: huggingface_file
+    dataset: gujilab/chinese-classical-corpus
+    filename: corpus.jsonl
+    category: classical
+    license: CC0-1.0
+    text_fields: [content]
+    mode: corpus
+    revision: 1979f15b4b749b3601fd9ee3e4111a725c079439
+    streaming: true
+    enabled: true
+
+  - name: fineweb2-chinese-50m
+    kind: huggingface
+    dataset: HuggingFaceFW/fineweb-2
+    config: cmn_Hani
+    split: train
+    category: general_zh
+    license: ODC-By-1.0
+    text_fields: [text]
+    revision: main
+    streaming: true
+    max_documents: 30000
+    enabled: true
+
+  - name: fineweb-english-50m
+    kind: huggingface
+    dataset: HuggingFaceFW/fineweb
+    config: sample-10BT
+    split: train
+    category: general_en
+    license: ODC-By-1.0
+    text_fields: [text]
+    revision: main
+    streaming: true
+    max_documents: 12000
+    enabled: true

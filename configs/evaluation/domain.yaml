@@ -1,0 +1,21 @@
+seed: 20260912
+dataset_path: data/final/evaluation/domain_400.jsonl
+output_dir: outputs/evaluation
+models:
+  base: .cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987
+  cpt: outputs/cpt/qwen2.5-0.5b-classical20/best
+  sft: outputs/sft/qwen2.5-0.5b-classical/best
+  dpo: outputs/dpo/qwen2.5-0.5b-classical/best
+  grpo: outputs/grpo/qwen2.5-0.5b-classical/best
+generation:
+  max_new_tokens: 384
+  do_sample: false
+  temperature: 0.0
+  repetition_penalty: 1.05
+rubric:
+  scale: [1, 5]
+  dimensions:
+    old_to_modern: [faithfulness, completeness, fluency]
+    modern_to_old: [meaning_preservation, classical_style, fluency]
+    appreciation: [factuality, textual_evidence, depth]
+    creation: [constraint_following, style, coherence, originality]

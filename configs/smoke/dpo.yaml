@@ -1,0 +1,24 @@
+stage: dpo
+model_name_or_path: outputs/smoke/sft/best
+dataset_path: data/examples/preferences/train.jsonl
+output_dir: outputs/smoke/dpo
+seed: 20260912
+max_length: 128
+beta: 0.1
+loss_type: sigmoid
+use_qlora: true
+load_in_4bit: true
+lora_r: 8
+lora_alpha: 16
+lora_dropout: 0.0
+learning_rate: 0.00005
+max_steps: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+logging_steps: 1
+save_steps: 1
+save_total_limit: 1
+bf16: true
+fp16: false
+
