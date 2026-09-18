@@ -1,0 +1,24 @@
+{
+  "dataset": "gujilab/chinese-classical-corpus",
+  "config": "translate",
+  "fields": {
+    "id": "str",
+    "task": "str",
+    "instruction": "str",
+    "input": "str",
+    "output": "str",
+    "source": "str",
+    "category": "str",
+    "_has_box": "bool"
+  },
+  "preview": {
+    "id": "instruct#1",
+    "task": "c2m",
+    "instruction": "用白话解释这句古文：",
+    "input": "假之以便，唆之使前，断其援应，陷之死地。",
+    "output": "故意露出一些破绽，以引诱敌人深入我方，乘机切断他的后援和前应，最终陷他于死地。",
+    "source": "三十六计·并战计/上屋抽梯",
+    "category": "集",
+    "_has_box": false
+  }
+}

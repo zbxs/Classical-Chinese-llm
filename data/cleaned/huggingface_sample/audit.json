@@ -1,0 +1,26 @@
+{
+  "inputs": [
+    "data\\raw\\huggingface_sample\\gujilab-classical.jsonl",
+    "data\\raw\\huggingface_sample\\gujilab-translate.jsonl",
+    "data\\raw\\huggingface_sample\\gujilab-punctuate.jsonl",
+    "data\\raw\\huggingface_sample\\fineweb2-chinese.jsonl",
+    "data\\raw\\huggingface_sample\\fineweb-english.jsonl"
+  ],
+  "accepted": {
+    "train": 464,
+    "validation": 13,
+    "test": 14
+  },
+  "rejections": {
+    "near_duplicate": 6,
+    "repeated_character_run": 3
+  },
+  "sources": {
+    "gujilab-classical": 100,
+    "gujilab-translate": 94,
+    "gujilab-punctuate": 100,
+    "fineweb2-chinese": 97,
+    "fineweb-english": 100
+  },
+  "seed": 20260912
+}

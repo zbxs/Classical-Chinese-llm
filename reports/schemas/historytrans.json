@@ -1,0 +1,16 @@
+{
+  "dataset": "HistoryTrans/Dataset",
+  "config": null,
+  "fields": {
+    "inputs": "str",
+    "truth": "str",
+    "results": "str",
+    "BLEU": "float"
+  },
+  "preview": {
+    "inputs": "作文曰染翰操觚，从师曰执经问难。",
+    "truth": "写字作文称 染翰操觚 ，拜师学习叫 执经问难 。",
+    "results": "写文章叫作磨墨磨笔，向老师学习叫作拿经书问难。",
+    "BLEU": 0.13958395118178135
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "teacher_model": "E:\\研二学习\\科研规划\\project1\\models\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775",
+  "requested": 2,
+  "generated": 2,
+  "rule_accepted": 1,
+  "human_review_required": true,
+  "seed": 20260912,
+  "tasks": [
+    "appreciation",
+    "creation"
+  ]
+}

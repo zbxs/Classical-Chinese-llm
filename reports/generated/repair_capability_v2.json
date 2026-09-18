@@ -1,0 +1,655 @@
+{
+  "status": "complete_needs_human_review",
+  "scope": "256-step capability repair pilot",
+  "data": {
+    "train": 8192,
+    "validation": 256,
+    "test": 128
+  },
+  "models": {
+    "instruct_baseline": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 1.0,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.000355848861283644,
+        "mean_chrf": 23.090952794677666
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.75,
+        "stop_rate": 1.0
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的，是上天所赐予的，不是人力所能改变的。",
+          "tokens": 19,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 25.795429208472687
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父楫，金商州南仓使也。",
+          "tokens": 12,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 26.76469242178086
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "tokens": 22,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.244638984094355
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又谓：一贯虑沈鲤、朱赓逼己。",
+          "tokens": 14,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 24.702211119594597
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然汉王起巴、蜀，鞭挞天下，劫诸侯，遂诛项羽。",
+          "tokens": 21,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 13.280617348745082
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "一年通常有多少个月？只回答数字。",
+          "expected": [
+            "12"
+          ],
+          "response": "二十二",
+          "require_all": false,
+          "passed": false,
+          "tokens": 3,
+          "stopped": true
+        },
+        {
+          "prompt": "请用一句话概括：小明出门时看到乌云，于是带上雨伞。",
+          "expected": [
+            "乌云",
+            "雨伞"
+          ],
+          "response": "小明出门时带了雨伞。",
+          "require_all": true,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+          "expected": [
+            "否"
+          ],
+          "response": "是。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 3,
+          "stopped": true
+        },
+        {
+          "prompt": "请把“请保持安静”改成礼貌表达。",
+          "expected": [
+            "请",
+            "安静"
+          ],
+          "response": "请保持静默。",
+          "require_all": true,
+          "passed": false,
+          "tokens": 6,
+          "stopped": true
+        }
+      ]
+    },
+    "base_plain": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 1.0,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.0026513266832927807,
+        "mean_chrf": 27.012890553429948
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.8,
+        "stop_rate": 1.0
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父亲是金商州南仓使。",
+          "tokens": 10,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 31.245085444008392
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，设伊吾郡；隋朝灭亡后，臣于突厥。",
+          "tokens": 24,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 16.743396670636667
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 我担心沈鲤、朱赓逼我。",
+          "tokens": 15,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 37.658551309948436
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而汉王起兵攻打巴、蜀，鞭笞天下，劫夺诸侯，最终诛灭了项羽。",
+          "tokens": 26,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 18.61099559498682
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三角形有三条边。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 7,
+          "stopped": true
+        },
+        {
+          "prompt": "请给“快乐”写一个近义词。",
+          "expected": [
+            "高兴",
+            "愉快",
+            "欢乐"
+          ],
+          "response": "快乐。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 3,
+          "stopped": true
+        },
+        {
+          "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+          "expected": [
+            "否"
+          ],
+          "response": "不是。鲸鱼属于哺乳动物，而鱼类属于脊椎动物。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 16,
+          "stopped": true
+        }
+      ]
+    },
+    "cpt_plain": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 1.0,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.0017285006240399395,
+        "mean_chrf": 25.962889933214626
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.8,
+        "stop_rate": 1.0
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父亲是金商州南仓使。",
+          "tokens": 10,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 31.245085444008392
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，设伊吾郡；隋朝灭亡后，臣于突厥。",
+          "tokens": 24,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 16.743396670636667
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 一贯担心沈鲤、朱赓逼自己。",
+          "tokens": 15,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 58.298860303178365
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而汉王刘邦起兵攻伐巴、蜀，鞭打天下，残酷地掠夺诸侯，最终诛灭了项羽。",
+          "tokens": 30,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 17.96345847542156
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "我们生活在哪颗行星上？",
+          "expected": [
+            "地球"
+          ],
+          "response": "我们生活在太阳系的第三颗行星上。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 11,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三角形有三条边。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 7,
+          "stopped": true
+        },
+        {
+          "prompt": "请给“快乐”写一个近义词。",
+          "expected": [
+            "高兴",
+            "愉快",
+            "欢乐"
+          ],
+          "response": "快乐。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 3,
+          "stopped": true
+        },
+        {
+          "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+          "expected": [
+            "否"
+          ],
+          "response": "是。鲸鱼属于哺乳动物，而鱼类属于脊椎动物。鲸鱼的体形和生活习性与鱼类相似，但鲸鱼具有更发达的脑和更复杂的神经系统，因此鲸鱼比鱼类更适应水生生活。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 53,
+          "stopped": true
+        }
+      ]
+    },
+    "instruct_sft": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 0.984375,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.01597544642857143,
+        "mean_chrf": 25.770269977427287
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.85,
+        "stop_rate": 0.95
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父亲楫，金商州南仓使。",
+          "tokens": 11,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 34.33529501945294
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "tokens": 22,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.244638984094355
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 我一向担心沈鲤、朱赓逼我。",
+          "tokens": 16,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 37.64242656589561
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而汉王刘邦起兵巴、蜀，鞭挞天下，残杀诸侯，于是诛灭项羽。",
+          "tokens": 25,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 23.233655454821765
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "一年通常有多少个月？只回答数字。",
+          "expected": [
+            "12"
+          ],
+          "response": "一",
+          "require_all": false,
+          "passed": false,
+          "tokens": 2,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三",
+          "require_all": false,
+          "passed": false,
+          "tokens": 2,
+          "stopped": true
+        }
+      ]
+    },
+    "instruct_sft_128": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 0.984375,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.01597544642857143,
+        "mean_chrf": 25.634523284767248
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.85,
+        "stop_rate": 0.95
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父亲楫，金商州南仓使。",
+          "tokens": 11,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 34.33529501945294
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "tokens": 22,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.244638984094355
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 我一向担心沈鲤、朱赓逼我。",
+          "tokens": 16,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 37.64242656589561
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而汉王刘邦起兵巴、蜀，鞭挞天下，残杀诸侯，于是诛灭项羽。",
+          "tokens": 25,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 23.233655454821765
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "一年通常有多少个月？只回答数字。",
+          "expected": [
+            "12"
+          ],
+          "response": "一",
+          "require_all": false,
+          "passed": false,
+          "tokens": 2,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三",
+          "require_all": false,
+          "passed": false,
+          "tokens": 2,
+          "stopped": true
+        }
+      ]
+    }
+  },
+  "training": {
+    "base_plain": {
+      "train_runtime": 546.0423,
+      "train_samples_per_second": 7.501,
+      "train_steps_per_second": 0.469,
+      "total_flos": 1039347825810432.0,
+      "train_loss": 2.125405505299568,
+      "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/repair-capability-v2/base_plain/checkpoint-256"
+    },
+    "cpt_plain": {
+      "train_runtime": 599.3869,
+      "train_samples_per_second": 6.834,
+      "train_steps_per_second": 0.427,
+      "total_flos": 1039347825810432.0,
+      "train_loss": 2.131444364786148,
+      "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/repair-capability-v2/cpt_plain/checkpoint-256"
+    },
+    "instruct_sft": {
+      "train_runtime": 487.2946,
+      "train_samples_per_second": 8.406,
+      "train_steps_per_second": 0.525,
+      "total_flos": 1352483226556416.0,
+      "train_loss": 2.1363877654075623,
+      "best_model_checkpoint": "/root/autodl-tmp/Classical-Chinese-llm/outputs/repair-capability-v2/instruct_sft/checkpoint-256"
+    }
+  },
+  "selection": {
+    "instruct_general_floor": 0.65,
+    "eligible": [
+      [
+        27.012890553429948,
+        0.8,
+        "base_plain"
+      ],
+      [
+        25.962889933214626,
+        0.8,
+        "cpt_plain"
+      ],
+      [
+        25.770269977427287,
+        0.85,
+        "instruct_sft"
+      ],
+      [
+        23.090952794677666,
+        0.75,
+        "instruct_baseline"
+      ]
+    ],
+    "selected": "base_plain",
+    "requires_human_review": true
+  },
+  "human_review": {
+    "single_adapter_accepted": null,
+    "translation_specialist": "base_plain",
+    "general_chat": "instruct_baseline",
+    "deployment": "smart_repaired",
+    "routing": {
+      "explicit_translation_request": "base_plain",
+      "other_requests": "instruct_baseline"
+    },
+    "reason": "base_plain had the best translation chrF with 100% stopping; both Instruct SFT checkpoints showed non-stopping repetition, so no single fine-tuned chat adapter was accepted"
+  }
+}

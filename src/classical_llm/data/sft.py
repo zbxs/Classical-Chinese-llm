@@ -102,7 +102,9 @@ def build_sft_dataset(
                 continue
             seen.add(identity)
             template_index = int(identity[:8], 16) % len(TASK_TEMPLATES[task])
-            user_prompt = TASK_TEMPLATES[task][template_index].format(text=source)
+            # Existing task-specific instructions must not be wrapped in a
+            # broader request unsupported by the supplied reference answer.
+            user_prompt = source if row.get("instruction") else TASK_TEMPLATES[task][template_index].format(text=source)
             candidates[task].append(
                 {
                     "id": identity,

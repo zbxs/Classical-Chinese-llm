@@ -1,0 +1,34 @@
+{
+  "sources": {
+    "gujilab-classical": {
+      "rows": 100,
+      "path": "data\\raw\\huggingface_sample\\gujilab-classical.jsonl",
+      "license": "CC0-1.0",
+      "revision": "1979f15b4b749b3601fd9ee3e4111a725c079439"
+    },
+    "gujilab-translate": {
+      "rows": 100,
+      "path": "data\\raw\\huggingface_sample\\gujilab-translate.jsonl",
+      "license": "CC0-1.0",
+      "revision": "1979f15b4b749b3601fd9ee3e4111a725c079439"
+    },
+    "gujilab-punctuate": {
+      "rows": 100,
+      "path": "data\\raw\\huggingface_sample\\gujilab-punctuate.jsonl",
+      "license": "CC0-1.0",
+      "revision": "1979f15b4b749b3601fd9ee3e4111a725c079439"
+    },
+    "fineweb2-chinese": {
+      "rows": 100,
+      "path": "data\\raw\\huggingface_sample\\fineweb2-chinese.jsonl",
+      "license": "ODC-By-1.0",
+      "revision": "main"
+    },
+    "fineweb-english": {
+      "rows": 100,
+      "path": "data\\raw\\huggingface_sample\\fineweb-english.jsonl",
+      "license": "ODC-By-1.0",
+      "revision": "main"
+    }
+  }
+}

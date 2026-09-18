@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "gujilab-classical-full": {
+      "rows": 12009,
+      "path": "data\\raw\\production_cpt\\gujilab-classical-full.jsonl",
+      "license": "CC0-1.0",
+      "revision": "1979f15b4b749b3601fd9ee3e4111a725c079439"
+    }
+  }
+}

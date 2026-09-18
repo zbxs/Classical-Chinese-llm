@@ -1,0 +1,16 @@
+{
+  "dataset": "TroyeML/Ancient_Chinese_Study_252k",
+  "config": null,
+  "fields": {
+    "instruction": "str",
+    "input": "str",
+    "output": "str",
+    "source": "str"
+  },
+  "preview": {
+    "instruction": "写诗：\n诗人：戴亨\n标题：题运使卢同年抱孙画屏十二首 其九 喜雨图",
+    "input": "",
+    "output": "滦水不上天，旱魃形狰狞。小民惧无岁，嚣然遂不宁。抚之失其道，何以销未萌。奉诏起循吏，精祷格皇灵。化雨应时来，枯禾尽回生。发粟宥其愚，众庶歌欢腾。天人相感召，斯理洵可凭。",
+    "source": "firefly_AncientPoem"
+  }
+}

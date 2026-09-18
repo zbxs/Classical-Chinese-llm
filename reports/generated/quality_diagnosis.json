@@ -1,0 +1,285 @@
+{
+  "tokenizers": {
+    "base": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    },
+    "cpt": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    },
+    "sft": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    },
+    "dpo": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    }
+  },
+  "data": {
+    "total_train_rows": 100000,
+    "sample": {
+      "rows": 5000,
+      "prompt_ge_1024": 0,
+      "full_gt_1024": 0,
+      "completion_prefix_mismatch": 5000,
+      "answer_lt_10_char": 518,
+      "im_end_in_retained_completion": 0
+    },
+    "by_task": {
+      "old_to_modern": {
+        "rows": 1253,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 1253,
+        "answer_lt_10_char": 56,
+        "im_end_in_retained_completion": 0
+      },
+      "creation": {
+        "rows": 1261,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 1261,
+        "answer_lt_10_char": 246,
+        "im_end_in_retained_completion": 0
+      },
+      "appreciation": {
+        "rows": 1231,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 1231,
+        "answer_lt_10_char": 71,
+        "im_end_in_retained_completion": 0
+      },
+      "modern_to_old": {
+        "rows": 1255,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 1255,
+        "answer_lt_10_char": 145,
+        "im_end_in_retained_completion": 0
+      }
+    },
+    "examples": {
+      "old_to_modern": [
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n翻译成现代文：\n此皆棋家之幽微也，不可不知也。",
+          "answer": "这都是棋家的深微之处，不能不认真了解。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "将下列文言语段译为通顺、完整的白话文：\n官奴婢五十以上，免为庶人。",
+          "answer": "官家奴婢五十岁以上的，免去奴婢籍而为平民。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n贺拔胜出为荆州刺史，启补骠骑长史。",
+          "answer": "贺拔胜出任荆州刺史，补授休之为骠骑长史。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        }
+      ],
+      "creation": [
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请严格遵守体裁、主题、字数和关键词要求完成创作：\n茶通七窍开茅塞\n输出下联：",
+          "answer": "春满一壶净俗尘",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请严格遵守体裁、主题、字数和关键词要求完成创作：\n题目：寓长春道院春雨即事呈郑尊师二首 其一\n作诗：",
+          "answer": "南荣相距数寻间，满地春泥隔往还。夜雨暗添篱脚水，晓云浓掩树头山。修篁夹径宜增植，细草侵阶莫谩删。世虑纷然无止极，敢求大药驻衰颜。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请按以下要求进行古典文学创作：\n老病畏多酌\n古诗续写，要求具有陆游的风格：",
+          "answer": "退闲愁夜行。市灯疏欲尽，楼月澹初生。露冷莎蛩咽，天寒塞雁征。归来差自喜，拥被听疏更。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        }
+      ],
+      "appreciation": [
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请结合原文翻译并赏析下列作品，分析必须给出文本依据：\n文言文翻译：\n隆庆二年进士。",
+          "answer": "答案：隆庆二年的进士。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "poetrymteb-appreciation",
+          "prompt": "请说明下文的主要内容、表达手法和思想感情，并引用原文作为依据：\n请判断这首诗的题材，并给出文本依据。\n水国西风小摇落，撩人羁绪乱如丝。大夫泽畔行吟处，司马江头送别时。尔辈何伤吾道在，此心惟有彼苍知。苍颜华发今如许，便挂衣冠已是迟。",
+          "answer": "贬谪诗，借景抒情。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请结合原文翻译并赏析下列作品，分析必须给出文本依据：\n文言文翻译：\n日率，七千三百四十一。",
+          "answer": "答案：日率：七千三百四十一。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        }
+      ],
+      "modern_to_old": [
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "请用符合古汉语习惯的表达重写下文：\n高宗说 ：刘光世军粮饷不足，如果突然转移，必然溃散，应先犒赏军队然后精简才成。 吕颐浩到镇江，刘光世军果然报告缺粮，吕颐浩上奏刘光世军每月消耗二千万缗，请求派官查验核实。",
+          "answer": "帝曰： 光世军粮不足，若骤移，必溃，先犒军而后料简可也。 颐浩至镇江，光世军果告乏，颐浩奏光世军月费二千万缗，乞差官考核。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "请将下面的现代汉语改写为简洁自然的文言文：\n他对太尉卫公李德裕说了碧莲花的事。",
+          "answer": "话于太尉卫公李德裕。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请用符合古汉语习惯的表达重写下文：\n武平末年，任仪同开府行参军、判集书省事。\n翻译成文言文：",
+          "answer": "武平末，仪同开府行参军、判集书省事。",
+          "prompt_tokens": 2,
+          "total_tokens": 2
+        }
+      ]
+    }
+  },
+  "inference": [
+    {
+      "model": "base",
+      "precision": "bf16",
+      "prompt_index": 0,
+      "response": "臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。先帝不以臣卑鄙，猥自枉屈，三顾臣于草庐之中，咨臣以",
+      "tokens": 48
+    },
+    {
+      "model": "base",
+      "precision": "bf16",
+      "prompt_index": 1,
+      "response": "弈者之技，其难易，其得失，其胜负，其奇正，其阴阳，其动静，其虚实，其变化，其变化，其变化，其变化，其变化，其变化，",
+      "tokens": 48
+    },
+    {
+      "model": "base",
+      "precision": "nf4",
+      "prompt_index": 0,
+      "response": "学而时习之，不亦说乎？acco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco\nacco",
+      "tokens": 48
+    },
+    {
+      "model": "base",
+      "precision": "nf4",
+      "prompt_index": 1,
+      "response": "弈者，智者也。弈者，智者之谓也。弈者，智者之谓也。弈者，智者之谓也。弈者，智者之谓也。弈者，智者",
+      "tokens": 48
+    },
+    {
+      "model": "cpt",
+      "precision": "bf16",
+      "prompt_index": 0,
+      "response": "你是一名精通英语的中国古典文学助手。回答必须忠于原文，不虚构作者、时代或典故。鲕\n鲕user\n请把下面的文言文准确翻译成现代汉语：\n学而时习之",
+      "tokens": 48
+    },
+    {
+      "model": "cpt",
+      "precision": "bf16",
+      "prompt_index": 1,
+      "response": "你是一名精通网络技术的网络助手。回答必须忠于原文，不虚构作者、时代或典故。={\"/} 考生答题： 上传时间：2014-03-06 1",
+      "tokens": 48
+    },
+    {
+      "model": "cpt",
+      "precision": "nf4",
+      "prompt_index": 0,
+      "response": "请把下面的文言文准确翻译成现代汉语：\n吾生也有涯，而知也无涯。acco\nacco\n请把下面的文言文准确翻译成现代汉语：\n吾生也有涯，而知",
+      "tokens": 48
+    },
+    {
+      "model": "cpt",
+      "precision": "nf4",
+      "prompt_index": 1,
+      "response": "请把下面的文言文准确翻译成现代汉语：\n翻译成现代文：\n此皆棋家之幽微也，不可不知也。lico\nlicoassistant\n请把下面的文言文准确翻译成现代汉语",
+      "tokens": 48
+    },
+    {
+      "model": "sft",
+      "precision": "bf16",
+      "prompt_index": 0,
+      "response": "学习而有计划地加以练习，不也是愉快吗？ norge，是啊！游戏副本，是啊！游戏副本，是啊！游戏副本，是啊！游戏副本，是啊！游戏副本，是啊！游戏副本，是啊！",
+      "tokens": 48
+    },
+    {
+      "model": "sft",
+      "precision": "bf16",
+      "prompt_index": 1,
+      "response": "这些都是棋家的微妙之处，不能不了解。�\n游戏副本：棋家的微妙之处，不可不了解。游戏副本：棋家的微妙之处，不可不了解。游戏副本：棋家的微妙之处，不可不了解",
+      "tokens": 48
+    },
+    {
+      "model": "sft",
+      "precision": "nf4",
+      "prompt_index": 0,
+      "response": "学习而有计划地加以练习，不也是劝勉吗？�\n选贤能之士，可以不劳而获；学而不厌，又何足为贵乎？핮\n选贤能的人，可以不",
+      "tokens": 48
+    },
+    {
+      "model": "sft",
+      "precision": "nf4",
+      "prompt_index": 1,
+      "response": "这些都是棋艺家的微妙之处，不能不了解。�\n此皆棋家之幽微也，不可不知也。FilterWhere，是位棋艺高超的棋手，他能将棋局中的各种情况都",
+      "tokens": 48
+    },
+    {
+      "model": "dpo",
+      "precision": "bf16",
+      "prompt_index": 0,
+      "response": "学习而不拘泥一无所不 Covered，不也是喜欢吗？celed不也高兴吗？температур不也愉快吗？температур不也快乐吗？температур不也幸福吗？температур不也幸福吗？температур不也幸福",
+      "tokens": 48
+    },
+    {
+      "model": "dpo",
+      "precision": "bf16",
+      "prompt_index": 1,
+      "response": "这些都是围棋这类游戏中的微妙之处不显而无迹的事迹，不能不了解啊！температур不答话不举手不举足地坐在那里不肯移动身体，这是围棋高手不自知的一种心理状态。游戏副本",
+      "tokens": 48
+    },
+    {
+      "model": "dpo",
+      "precision": "nf4",
+      "prompt_index": 0,
+      "response": "学习而不拘无规定地反复练习它，不也不愉快吗？_Parms不学而不恒常地反复练习它，不也不愉快吗？_Parms所以说学习而不拘无规定地反复练习它，不也不愉快吗？",
+      "tokens": 48
+    },
+    {
+      "model": "dpo",
+      "precision": "nf4",
+      "prompt_index": 1,
+      "response": "这些都是棋艺不高的人所没有了解的微妙之处，不能不了解这些。_Parms不答谢您赐我的棋子不谢您赐我的棋子不谢您赐我的棋子不谢您赐我的棋子不",
+      "tokens": 48
+    }
+  ]
+}

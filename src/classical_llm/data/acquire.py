@@ -19,15 +19,17 @@ def _pick_text(row: dict[str, Any], fields: list[str]) -> str | None:
 
 def _task_from_instruction(instruction: str, source_tag: str) -> str | None:
     value = f"{instruction}\n{source_tag}".lower()
-    if any(token in value for token in ("翻译成古文", "译成文言", "modern to classical")):
+    if any(token in value for token in ("翻译成古文", "翻译成文言", "译成文言", "modern to classical")):
         return "modern_to_old"
-    if any(token in value for token in ("翻译成现代", "翻译成白话", "译为白话", "classical to modern")):
+    if any(token in value for token in ("翻译成现代", "翻译成白话", "译为白话", "文言文翻译", "classical to modern")):
         return "old_to_modern"
     if source_tag in {"firefly_AncientPoem", "firefly_Couplet", "firefly_JinYongGeneration"}:
         return "creation"
     if any(token in value for token in ("写诗", "作诗", "诗词创作", "对联", "仿写", "续写")):
         return "creation"
-    if any(token in value for token in ("古诗词", "文言文", "赏析", "鉴赏", "解释", "成语")):
+    # Mentioning classical language or an idiom is not an appreciation task.
+    # Prefer dropping ambiguous candidates to silently satisfying a quota.
+    if any(token in value for token in ("赏析", "鉴赏", "思想感情", "表达手法")):
         return "appreciation"
     return None
 
