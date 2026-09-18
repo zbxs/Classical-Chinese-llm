@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>古文模型 · 对比聊天</title>
+<style>
+body{margin:0;background:#f4f2ed;color:#232a32;font:16px/1.65 system-ui,sans-serif}main{max-width:1500px;margin:28px auto;padding:0 24px}h1{margin-bottom:4px}p{margin:8px 0}.muted{color:#64707d;font-size:14px}.controls{background:white;padding:20px;border-radius:16px;margin:20px 0}textarea{box-sizing:border-box;width:100%;padding:12px;font:inherit;border:1px solid #cad0d5;border-radius:8px;margin:8px 0}button,select{padding:10px 15px;font:inherit;border-radius:8px;border:1px solid #c7d0d5;margin:5px 8px 5px 0}button{cursor:pointer;background:#153f45;color:white}button:disabled{opacity:.45;cursor:wait}#grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}.card{background:white;border-radius:14px;padding:18px;min-width:0}h2{margin:0 0 12px}.msg{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;border-radius:8px;margin:10px 0;background:#f1f5f5}.user{background:#faf3e5}.label{font-size:12px;color:#627078}.err{color:#a52b25}details{margin:8px 0}
+</style>
+<main><h1>古文模型 · 对比聊天</h1><p class="muted">4090D 私有推理 · 新增 SFT 结束机制修复试验版，仍有错译，不是最终模型</p>
+<div class="controls"><label>发送给 <select id="model"><option value="sft_repaired">SFT 修复试验版（先试这个）</option><option value="all">全部六个模型（逐个生成）</option><option>base</option><option>cpt</option><option>sft</option><option>dpo</option><option>grpo</option></select></label><label>回答上限 <select id="limit"><option value="192">192 token（较快）</option><option value="384">384 token</option><option value="512">512 token</option></select></label>
+<details><summary>对比规则与系统提示</summary><p class="muted">每个模型独立保留多轮历史，输入同一问题后历史可能不同。想做公平单轮对比，请先清空。贪心解码，无随机采样。聊天遇到结束标记会停止，与离线评分的停止设置可能不同。Base 不是指令模型，不保证遵守聊天格式。首次加载较慢，聊天内容仅在当前页面内存中保留，不写入服务器文件。</p><textarea id="system" rows="2">你是一名严谨的中国古典文学助手。回答必须忠于原文，不虚构作者、时代或典故。</textarea></details>
+<textarea id="prompt" rows="3" placeholder="例如：请把“苟全性命于乱世，不求闻达于诸侯”翻译成现代汉语，并解释“闻达”。"></textarea>
+<button id="send">发送 / 对比</button><button id="clear">清空全部对话</button><span id="status" class="muted">准备连接…</span></div><div id="grid"></div></main>
+<script>
+const names=['sft_repaired','base','cpt','sft','dpo','grpo'], histories=Object.fromEntries(names.map(n=>[n,[]]));
+const labels={sft_repaired:'SFT · 修复试验版',base:'Base · 原始模型',cpt:'CPT · 古文 5%',sft:'SFT · 旧版',dpo:'DPO · 偏好优化',grpo:'GRPO · 强化学习'};
+const $=id=>document.getElementById(id); let busy=false;
+function cards(){ $('grid').replaceChildren(); for(const n of names){let c=document.createElement('section');c.className='card';let h=document.createElement('h2');h.textContent=labels[n];c.append(h);let b=document.createElement('div');b.id='body-'+n;c.append(b);$('grid').append(c);}}
+function append(n,role,text){let b=document.createElement('div');b.className='msg '+(role==='user'?'user':'');let label=document.createElement('div');label.className='label';label.textContent=role==='user'?'你':'模型';let t=document.createElement('div');t.textContent=text;b.append(label,t);$('body-'+n).append(b);return t;}
+function lock(value){busy=value;for(const id of ['send','clear','system','model','limit'])$(id).disabled=value;}
+$('clear').onclick=()=>{if(busy)return;for(const n of names)histories[n]=[];cards();$('status').textContent='已清空，下一条是新对话';};
+$('send').onclick=async()=>{let q=$('prompt').value.trim();if(!q||busy)return;lock(true);const targets=$('model').value==='all'?names:[$('model').value];$('prompt').value='';
+for(const n of targets){$('status').textContent='正在生成 '+labels[n]+'，请稍候…';append(n,'user',q);let box=append(n,'assistant','生成中…');try{const ms=[{role:'system',content:$('system').value},...histories[n],{role:'user',content:q}];const response=await fetch('/chat',{method:'POST',headers:{'Content-Type':'application/json','X-Local-Chat':'1'},body:JSON.stringify({model:n,messages:ms,max_tokens:Number($('limit').value)})});const data=await response.json();if(!response.ok)throw Error(data.error);box.textContent=data.response||'（空回答）';histories[n].push({role:'user',content:q},{role:'assistant',content:data.response});let foot=document.createElement('div');foot.className='muted';foot.textContent=`${data.tokens} token · ${data.seconds} 秒${data.hit_limit?' · 已达长度上限':''}`;box.parentElement.append(foot);}catch(e){box.textContent=e.message;box.className='err';}}
+$('status').textContent='本轮完成，可以继续追问或清空后换题';lock(false);};
+cards();fetch('/health').then(r=>{if(!r.ok)throw Error();return r.json()}).then(()=>{$('status').textContent='已连接服务器，首次加载模型需要稍候';}).catch(()=>{$('status').textContent='未连接，请检查 SSH 隧道';});
+</script></html>

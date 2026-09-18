@@ -109,6 +109,28 @@ def load_tokenizer(model_path: str):
     return tokenizer
 
 
+def set_assistant_end_token(tokenizer, token: str) -> None:
+    """Plain-text ChatML template with an explicit learnable assistant terminator.
+
+    Opt-in only. Existing saved runs retain their original templates. Prompts
+    keep im_end; only assistant endings change. No tool-call support here.
+    """
+    if token not in tokenizer.get_vocab():
+        raise ValueError(f"End token is not in the tokenizer vocabulary: {token}")
+    if token not in {"<|endoftext|>", "<|im_end|>"}:
+        raise ValueError("Unsupported assistant end token")
+    tokenizer.eos_token = token
+    tokenizer.chat_template = (
+        "{% if messages[0]['role'] != 'system' %}"
+        "{{ '<|im_start|>system\\nYou are a helpful assistant.<|im_end|>\\n' }}{% endif %}"
+        "{% for message in messages %}"
+        "{{ '<|im_start|>' + message['role'] + '\\n' + message['content'] }}"
+        "{% if message['role'] == 'assistant' %}{{ '" + token + "\\n' }}"
+        "{% else %}{{ '<|im_end|>\\n' }}{% endif %}{% endfor %}"
+        "{% if add_generation_prompt %}{{ '<|im_start|>assistant\\n' }}{% endif %}"
+    )
+
+
 def load_causal_model(model_path: str, config: dict[str, Any]):
     from transformers import AutoModelForCausalLM
 

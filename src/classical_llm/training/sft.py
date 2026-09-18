@@ -12,6 +12,7 @@ from classical_llm.training.common import (
     resolve_model,
     resolve_resume_checkpoint,
     save_run_metadata,
+    set_assistant_end_token,
 )
 from classical_llm.utils.config import load_yaml, resolve_project_path
 
@@ -33,6 +34,8 @@ def run_sft(config_path: str) -> dict[str, Any]:
         remove_columns=original_columns,
     )
     tokenizer = load_tokenizer(model_path)
+    if config.get("assistant_end_token"):
+        set_assistant_end_token(tokenizer, str(config["assistant_end_token"]))
     model = load_causal_model(model_path, config)
     has_eval = "validation" in dataset
     args = SFTConfig(
@@ -41,6 +44,7 @@ def run_sft(config_path: str) -> dict[str, Any]:
         packing=False,
         completion_only_loss=True,
         assistant_only_loss=False,
+        eos_token=tokenizer.eos_token,
     )
     trainer = SFTTrainer(
         model=model,

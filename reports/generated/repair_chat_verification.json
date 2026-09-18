@@ -1,0 +1,45 @@
+{
+  "count": 20,
+  "stop_rate": 1.0,
+  "mean_repetition": 0.011124003511221553,
+  "replacement_rate": 0.0,
+  "chrf_16": 30.530488429474996,
+  "manual": [
+    {
+      "id": "manual-0",
+      "prompt": "请把下面的文言文准确翻译成现代汉语：\n学而时习之，不亦说乎？",
+      "response": "学习而有计划地加以练习，不也是愉快吗?",
+      "tokens": 14,
+      "stopped": true,
+      "repetition": 0.0,
+      "replacement_character": false
+    },
+    {
+      "id": "manual-1",
+      "prompt": "请把下面的文言文准确翻译成现代汉语：\n苟全性命于乱世，不求闻达于诸侯。",
+      "response": "苟且保全性命在乱世，不求在诸侯中显赫的地位。",
+      "tokens": 19,
+      "stopped": true,
+      "repetition": 0.0,
+      "replacement_character": false
+    },
+    {
+      "id": "manual-2",
+      "prompt": "请把下面的文言文准确翻译成现代汉语：\n己所不欲，勿施于人。",
+      "response": "自己不喜欢的东西，不要强加于人。",
+      "tokens": 11,
+      "stopped": true,
+      "repetition": 0.0,
+      "replacement_character": false
+    },
+    {
+      "id": "manual-3",
+      "prompt": "请把下面的文言文准确翻译成现代汉语：\n知之为知之，不知为不知，是知也。",
+      "response": "知道就是知道，不知道就是不知道，这就是智慧。",
+      "tokens": 12,
+      "stopped": true,
+      "repetition": 0.052631578947368474,
+      "replacement_character": false
+    }
+  ]
+}

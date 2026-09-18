@@ -1,0 +1,162 @@
+{
+  "status": "complete_needs_review",
+  "scope": "EOS-only controlled pilot, not final benchmark",
+  "counts": {
+    "test": 16,
+    "validation": 64,
+    "train": 1024
+  },
+  "results": {
+    "original": {
+      "count": 20,
+      "stop_rate": 0.0,
+      "mean_repetition": 0.5369179273683936,
+      "replacement_rate": 0.95,
+      "chrf_16": 18.893480774564505,
+      "manual": [
+        {
+          "id": "manual-0",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n学而时习之，不亦说乎？",
+          "response": "学习而有计划地加以练习，不也是劝勉吗？�\n选贤能之士，可以不劳而获；学而不厌，又何足为贵乎？핮\n选贤能的人，可以不劳而获；学习而不厌倦，又有什么值得羡慕的呢？𪤗\n人要学习，就要有计划地加以学习，不也是劝勉吗？ …… 人要学习，就要有计划地加以学习",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.23333333333333328,
+          "replacement_character": true
+        },
+        {
+          "id": "manual-1",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n苟全性命于乱世，不求闻达于诸侯。",
+          "response": "苟且保全性命在乱世，不求闻达于诸侯。�\n答案：苟且保全性命在乱世，不求闻达于诸侯。FilterWhere\n答案：苟且保全性命在乱世，不求闻达于诸侯。FilterWhere\n答案：苟且保全性命在乱世，不求闻达于诸侯。FilterWhere\n答案：苟且保全性命在乱世，不求闻达于诸侯。",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.7299270072992701,
+          "replacement_character": true
+        },
+        {
+          "id": "manual-2",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n己所不欲，勿施于人。",
+          "response": "自己所不喜好的，不要施于他人。�\n答案：自己所不喜欢的，不要施于别人。핮\n三曰：勿自损己。 三曰：勿自损己。𪤗\n三曰：勿自损己。FilterWhere\n三曰：勿自损己。FilterWhere\n三曰：勿自损己。FilterWhere\n三曰：勿自损己。FilterWhere\n三曰：勿自损己。FilterWhere",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.611842105263158,
+          "replacement_character": true
+        },
+        {
+          "id": "manual-3",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n知之为知之，不知为不知，是知也。",
+          "response": "知道就是知道，不知道就是不知道，这就是知。�\n答：知就是知道，不知就是不知道，这就是知。핮\n知之为知之，不知为不知，是知。FilterWhere说：知就是知道，不知就是不知道，这就是知。FilterWhere说：知就是知道，不知就是不知道，这就是知。FilterWhere说：知就是知道，不知就是不知道，这就是知。FilterWhere说：知就是知道，不知就是不知道，这就是知",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.6756756756756757,
+          "replacement_character": true
+        }
+      ]
+    },
+    "control": {
+      "count": 20,
+      "stop_rate": 0.0,
+      "mean_repetition": 0.5331103916389989,
+      "replacement_rate": 0.95,
+      "chrf_16": 19.70351648140406,
+      "manual": [
+        {
+          "id": "manual-0",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n学而时习之，不亦说乎？",
+          "response": "学习而有计划地加以练习，不也是劝勉吗？�\n答：学习而有计划地加以练习，不是也劝勉吗？핮\n答案：学习而有计划地加以练习，不是也劝勉吗？�\n答案：学习而有计划地加以练习，不是也劝勉吗？𪤗\n答案：学习而有计划地加以练习，不是也劝勉吗？𬷕\n答案：学习而有计划地加以",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.648,
+          "replacement_character": true
+        },
+        {
+          "id": "manual-1",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n苟全性命于乱世，不求闻达于诸侯。",
+          "response": "如果能够全心全意地为国家效力，不求声名显达于诸侯。�\n答案：苟且保全性命在乱世中，不求在诸侯中得到名声。핮\n答案：苟且保全性命在乱世中，不求在诸侯中得到名声。FilterWhere\n答案：苟且保全性命在乱世中，不求在诸侯中得到名声。FilterWhere\n答案：苟且保全性命在",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.5037037037037038,
+          "replacement_character": true
+        },
+        {
+          "id": "manual-2",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n己所不欲，勿施于人。",
+          "response": "自己不喜欢的东西，不要强加给别人。�\n答案：自己不喜欢的东西，不要强加给别人。핮\n答案：自己不喜欢的东西，不要强加给别人。𪤗\n答案：自己不喜欢的东西，不要强加给别人。�\n答案：自己不喜欢的东西，不要强加给别人。𬷕\n答案：自己不喜欢的东西，不要强加给别人。FilterWhere\n答案：自己不喜欢的东西，不要强加给别人。FilterWhere\n答案：自己不喜欢的东西，不要",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.7362637362637363,
+          "replacement_character": true
+        },
+        {
+          "id": "manual-3",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n知之为知之，不知为不知，是知也。",
+          "response": "知道就是知道，不知道就是不知道，这就是知。�\n答：知就是知道，不知就是不知道，这就是知。핮\n知之为知之，不知为不知，是知。FilterWhere说：知就是知道，不知就是不知道，这就是知。FilterWhere说：知就是知道，不知就是不知道，这就是知。FilterWhere说：知就是知道，不知就是不知道，这就是知。FilterWhere说：知就是知道，不知就是不知道，这就是知",
+          "tokens": 96,
+          "stopped": false,
+          "repetition": 0.6756756756756757,
+          "replacement_character": true
+        }
+      ]
+    },
+    "eos_fix": {
+      "count": 20,
+      "stop_rate": 1.0,
+      "mean_repetition": 0.016565621901929384,
+      "replacement_rate": 0.0,
+      "chrf_16": 28.890632082336435,
+      "manual": [
+        {
+          "id": "manual-0",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n学而时习之，不亦说乎？",
+          "response": "学习而有计划地加以练习，不也是劝勉吗?",
+          "tokens": 15,
+          "stopped": true,
+          "repetition": 0.0,
+          "replacement_character": false
+        },
+        {
+          "id": "manual-1",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n苟全性命于乱世，不求闻达于诸侯。",
+          "response": "苟且保全性命在乱世，不求闻达于诸侯。",
+          "tokens": 17,
+          "stopped": true,
+          "repetition": 0.0,
+          "replacement_character": false
+        },
+        {
+          "id": "manual-2",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n己所不欲，勿施于人。",
+          "response": "自己不喜欢的东西，不要强加给别人。",
+          "tokens": 10,
+          "stopped": true,
+          "repetition": 0.0,
+          "replacement_character": false
+        },
+        {
+          "id": "manual-3",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n知之为知之，不知为不知，是知也。",
+          "response": "知道就是知道，不知道就是不知道，这就是知。",
+          "tokens": 12,
+          "stopped": true,
+          "repetition": 0.05555555555555558,
+          "replacement_character": false
+        }
+      ]
+    }
+  },
+  "train_control": {
+    "train_runtime": 136.7669,
+    "train_samples_per_second": 7.487,
+    "train_steps_per_second": 0.468,
+    "total_flos": 321363236843520.0,
+    "train_loss": 1.7139319777488708,
+    "best_model_checkpoint": null
+  },
+  "train_eos_fix": {
+    "train_runtime": 130.2859,
+    "train_samples_per_second": 7.86,
+    "train_steps_per_second": 0.491,
+    "total_flos": 321363236843520.0,
+    "train_loss": 1.534324049949646,
+    "best_model_checkpoint": null
+  }
+}
