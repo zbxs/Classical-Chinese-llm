@@ -1,0 +1,22 @@
+{
+  "sources": {
+    "historytrans-bidirectional": {
+      "rows": 80000,
+      "path": "data\\raw\\production_sft\\historytrans-bidirectional.jsonl",
+      "license": "MIT",
+      "revision": "89087a1ea7ba831a34b9d3101281a6f1ff9334ea"
+    },
+    "poetrymteb-appreciation": {
+      "rows": 27870,
+      "path": "data\\raw\\production_sft\\poetrymteb-appreciation.jsonl",
+      "license": "CC-BY-NC-4.0",
+      "revision": "a44edb49f175381e6343b18d561e3d3e734b51ec"
+    },
+    "troye-ancient-creation": {
+      "rows": 160000,
+      "path": "data\\raw\\production_sft\\troye-ancient-creation.jsonl",
+      "license": "Apache-2.0",
+      "revision": "fcb5b55cc9b1d934063d833f31923b7e8acfc62d"
+    }
+  }
+}

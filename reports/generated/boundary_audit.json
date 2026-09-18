@@ -1,0 +1,257 @@
+{
+  "data_full_counts": {
+    "task/old_to_modern": 25000,
+    "source/troye-ancient-creation": 44681,
+    "source/historytrans-bidirectional": 32512,
+    "task/modern_to_old": 25000,
+    "task/creation": 25000,
+    "task/appreciation": 25000,
+    "source/poetrymteb-appreciation": 22807,
+    "appreciation_answer_under20_chars": 5052,
+    "appreciation_contains_translation_instruction": 2188
+  },
+  "special_tokens": {
+    "<|endoftext|>": {
+      "encode": [
+        151643
+      ],
+      "runtime_id": 151643,
+      "json_vocab_id": null,
+      "added": [
+        {
+          "id": 151643,
+          "content": "<|endoftext|>",
+          "single_word": false,
+          "lstrip": false,
+          "rstrip": false,
+          "normalized": false,
+          "special": true
+        }
+      ]
+    },
+    "<|im_start|>": {
+      "encode": [
+        151644
+      ],
+      "runtime_id": 151644,
+      "json_vocab_id": null,
+      "added": [
+        {
+          "id": 151644,
+          "content": "<|im_start|>",
+          "single_word": false,
+          "lstrip": false,
+          "rstrip": false,
+          "normalized": false,
+          "special": true
+        }
+      ]
+    },
+    "<|im_end|>": {
+      "encode": [
+        151645
+      ],
+      "runtime_id": 151645,
+      "json_vocab_id": null,
+      "added": [
+        {
+          "id": 151645,
+          "content": "<|im_end|>",
+          "single_word": false,
+          "lstrip": false,
+          "rstrip": false,
+          "normalized": false,
+          "special": true
+        }
+      ]
+    }
+  },
+  "supervision": [
+    {
+      "text": "这都是棋家的深微之处，不能不认真了解。<|im_end|>\n",
+      "im_end_supervised": true,
+      "tokens": 16
+    },
+    {
+      "text": "萧赞逃出州城后，做了和尚，偷偷来到长白山，不久，到了阳平，因病去世。<|im_end|>\n",
+      "im_end_supervised": true,
+      "tokens": 29
+    },
+    {
+      "text": "及赴汶上，逾月入觐。<|im_end|>\n",
+      "im_end_supervised": true,
+      "tokens": 12
+    },
+    {
+      "text": "隔岸柳初黄。河上春犹浅，天涯日渐长。平时好行乐，往事入思量。最恨三年别，应添两鬓霜。<|im_end|>\n",
+      "im_end_supervised": true,
+      "tokens": 39
+    }
+  ],
+  "boundary_logits": [
+    {
+      "gold_answer": "这都是棋家的深微之处，不能不认真了解。",
+      "im_end_probability": 0.00031972728902474046,
+      "im_end_rank": 255,
+      "top": [
+        {
+          "id": 128,
+          "text": "�",
+          "p": 0.00037757318932563066
+        },
+        {
+          "id": 151450,
+          "text": "핮",
+          "p": 0.0003597997420001775
+        },
+        {
+          "id": 122659,
+          "text": "�",
+          "p": 0.00035636944812722504
+        },
+        {
+          "id": 123306,
+          "text": "𪤗",
+          "p": 0.00035472121089696884
+        },
+        {
+          "id": 122986,
+          "text": "𬷕",
+          "p": 0.00034306017914786935
+        }
+      ]
+    },
+    {
+      "gold_answer": "萧赞逃出州城后，做了和尚，偷偷来到长白山，不久，到了阳平，因病去世。",
+      "im_end_probability": 0.0003198398626409471,
+      "im_end_rank": 157,
+      "top": [
+        {
+          "id": 128,
+          "text": "�",
+          "p": 0.0003814956289716065
+        },
+        {
+          "id": 151450,
+          "text": "핮",
+          "p": 0.0003653131425380707
+        },
+        {
+          "id": 122659,
+          "text": "�",
+          "p": 0.00035895049222745
+        },
+        {
+          "id": 123306,
+          "text": "𪤗",
+          "p": 0.00035450441646389663
+        },
+        {
+          "id": 149434,
+          "text": "냨",
+          "p": 0.00033855062793008983
+        }
+      ]
+    },
+    {
+      "gold_answer": "及赴汶上，逾月入觐。",
+      "im_end_probability": 0.0003200833161827177,
+      "im_end_rank": 195,
+      "top": [
+        {
+          "id": 128,
+          "text": "�",
+          "p": 0.00038084384868852794
+        },
+        {
+          "id": 151450,
+          "text": "핮",
+          "p": 0.00037645676638931036
+        },
+        {
+          "id": 122659,
+          "text": "�",
+          "p": 0.000359867000952363
+        },
+        {
+          "id": 123306,
+          "text": "𪤗",
+          "p": 0.00035517074866220355
+        },
+        {
+          "id": 149434,
+          "text": "냨",
+          "p": 0.00034044694621115923
+        }
+      ]
+    }
+  ],
+  "embedding_rows": {
+    "<|endoftext|>": {
+      "id": 151643,
+      "input_norm": 0.5986875295639038,
+      "output_norm": 0.5986875295639038,
+      "output_nonzero": 896,
+      "output_trainable": false
+    },
+    "<|im_start|>": {
+      "id": 151644,
+      "input_norm": 0.30096036195755005,
+      "output_norm": 0.30096036195755005,
+      "output_nonzero": 896,
+      "output_trainable": false
+    },
+    "<|im_end|>": {
+      "id": 151645,
+      "input_norm": 0.3009583055973053,
+      "output_norm": 0.3009583055973053,
+      "output_nonzero": 896,
+      "output_trainable": false
+    },
+    "。": {
+      "id": 1773,
+      "input_norm": 0.4267358183860779,
+      "output_norm": 0.4267358183860779,
+      "output_nonzero": 896,
+      "output_trainable": false
+    },
+    "的": {
+      "id": 9370,
+      "input_norm": 0.411356657743454,
+      "output_norm": 0.411356657743454,
+      "output_nonzero": 896,
+      "output_trainable": false
+    }
+  },
+  "embedding_modules": [
+    "base_model.model.model.embed_tokens",
+    "base_model.model.lm_head"
+  ],
+  "end_token_neighbors": {
+    "rows_within_l2_0.001": 2240,
+    "start_end_l2": 8.070277544902638e-05,
+    "examples": [
+      124,
+      125,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      77150,
+      78783,
+      79269,
+      79270,
+      80091,
+      83969,
+      83971
+    ],
+    "head_has_adapter": false
+  }
+}

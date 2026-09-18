@@ -1,0 +1,27 @@
+{
+  "inputs": [
+    "data\\raw\\production_cpt\\gujilab-classical-full.jsonl",
+    "data\\raw\\production_cpt\\fineweb2-chinese-50m.jsonl",
+    "data\\raw\\production_cpt\\fineweb-english-50m.jsonl"
+  ],
+  "accepted": {
+    "train": 40291,
+    "validation": 2038,
+    "test": 2167
+  },
+  "rejections": {
+    "repeated_lines": 7,
+    "repeated_character_run": 1436,
+    "too_short": 7760,
+    "near_duplicate": 1,
+    "web_boilerplate": 271,
+    "replacement_character": 42,
+    "low_cjk_ratio": 1
+  },
+  "sources": {
+    "gujilab-classical-full": 4239,
+    "fineweb2-chinese-50m": 28303,
+    "fineweb-english-50m": 11954
+  },
+  "seed": 20260912
+}

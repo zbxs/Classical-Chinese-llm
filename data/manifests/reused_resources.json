@@ -1,0 +1,31 @@
+{
+  "policy": "Read-only reuse; never modify or delete the source project resources.",
+  "resources": [
+    {
+      "name": "qwen2.5-0.5b-base",
+      "path": "E:\\研二学习\\实习项目\\project1\\.cache\\huggingface\\models--Qwen--Qwen2.5-0.5B\\snapshots\\060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "exists": true,
+      "model_sha256": "88c142557820ccad55bb59756bfcfcf891de9cc6202816bd346445188a0ed342",
+      "model_hash_matches": true
+    },
+    {
+      "name": "pytorch-cu124-wheel",
+      "path": "E:\\研二学习\\科研规划\\project1\\artifacts\\torch-2.6.0+cu124-cp312-cp312-win_amd64.whl",
+      "exists": true,
+      "sha256": "3313061c1fec4c7310cf47944e84513dcd27b6173b72a349bb7ca68d0ee6e9c0",
+      "hash_matches": true
+    },
+    {
+      "name": "qwen2.5-0.5b-instruct",
+      "path": "E:\\研二学习\\科研规划\\project1\\models\\models--Qwen--Qwen2.5-0.5B-Instruct\\snapshots\\7ae557604adf67be50417f59c2c2f167def9a775",
+      "exists": true,
+      "model_sha256": "fdf756fa7fcbe7404d5c60e26bff1a0c8b8aa1f72ced49e7dd0210fe288fb7fe",
+      "model_hash_matches": true
+    },
+    {
+      "name": "qwen3-0.6b",
+      "path": "E:\\研二学习\\科研规划\\project1\\models\\models--Qwen--Qwen3-0.6B\\snapshots\\c1899de289a04d12100db370d81485cdf75e47ca",
+      "exists": true
+    }
+  ]
+}

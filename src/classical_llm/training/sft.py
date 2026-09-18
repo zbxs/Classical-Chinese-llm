@@ -26,13 +26,19 @@ def run_sft(config_path: str) -> dict[str, Any]:
     save_run_metadata(output_dir, config, model_path, "starting")
     dataset = load_json_dataset(config["dataset_path"], config.get("validation_path"))
     original_columns = dataset["train"].column_names
-    dataset = dataset.map(
-        lambda row: {
-            "prompt": row["messages"][:-1],
-            "completion": [row["messages"][-1]],
-        },
-        remove_columns=original_columns,
-    )
+    if config.get("format_style", "chat") == "plain":
+        dataset = dataset.map(
+            lambda row: {"prompt": row["prompt_text"], "completion": row["answer_text"]},
+            remove_columns=original_columns,
+        )
+    else:
+        dataset = dataset.map(
+            lambda row: {
+                "prompt": row["messages"][:-1],
+                "completion": [row["messages"][-1]],
+            },
+            remove_columns=original_columns,
+        )
     tokenizer = load_tokenizer(model_path)
     if config.get("assistant_end_token"):
         set_assistant_end_token(tokenizer, str(config["assistant_end_token"]))
@@ -44,7 +50,7 @@ def run_sft(config_path: str) -> dict[str, Any]:
         packing=False,
         completion_only_loss=True,
         assistant_only_loss=False,
-        eos_token=tokenizer.eos_token,
+        eos_token=str(config.get("eos_token", tokenizer.eos_token)),
     )
     trainer = SFTTrainer(
         model=model,

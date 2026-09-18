@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -18,18 +19,42 @@ configure_project_environment()
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT / ".cache/huggingface/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987"
+INSTRUCT = ROOT / ".cache/huggingface/Qwen2.5-0.5B-Instruct/7ae557604adf67be50417f59c2c2f167def9a775"
 PATHS = {
     "base": BASE,
     "cpt": ROOT / "outputs/cpt/qwen2.5-0.5b-classical05/best",
     **{name: ROOT / f"outputs/{name}/qwen2.5-0.5b-classical/best"
        for name in ("sft", "dpo", "grpo")},
 }
+PATHS["official_instruct"] = INSTRUCT
+PATHS["translation_repaired"] = ROOT / "outputs/repair-capability-v2/base_plain/best"
 verification = ROOT / "reports/generated/repair_chat_verification.json"
-if verification.exists() and json.loads(verification.read_text())["stop_rate"] >= 0.9:
+if verification.exists() and json.loads(verification.read_text(encoding="utf-8"))["stop_rate"] >= 0.9:
     PATHS["sft_repaired"] = ROOT / "outputs/repair-eos-pilot-v1/eos_fix/best"
 CACHE = {}
 LOCK = threading.Lock()
 LOGGER = logging.getLogger(__name__)
+
+
+def _translation_request(text: str) -> bool:
+    return any(term in text.lower() for term in ("翻译", "译成", "译为", "今译", "白话", "现代汉语"))
+
+
+def _translation_source(text: str) -> str:
+    quoted = re.findall(r"[“「『\"]([^”」』\"]{2,})[”」』\"]", text)
+    if quoted:
+        return max(quoted, key=len).strip()
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    candidates = [line for line in lines if not _translation_request(line)]
+    if candidates:
+        return candidates[-1]
+    return re.sub(r"^.*?(?:[:：])", "", text, count=1).strip() or text.strip()
+
+
+def _backend(requested: str, messages: list[dict]) -> str:
+    if requested != "smart_repaired":
+        return requested
+    return "translation_repaired" if _translation_request(messages[-1]["content"]) else "official_instruct"
 
 
 def reply(payload):
@@ -38,8 +63,8 @@ def reply(payload):
     from classical_llm.evaluation.generate import _load_model
     from classical_llm.training.common import load_tokenizer
 
-    name = payload.get("model")
-    if name not in PATHS:
+    requested = payload.get("model")
+    if requested not in {*PATHS, "smart_repaired"}:
         raise ValueError("未知模型")
     messages = payload.get("messages")
     if not isinstance(messages, list) or not 1 <= len(messages) <= 41:
@@ -53,13 +78,18 @@ def reply(payload):
     if not 32 <= limit <= 512:
         raise ValueError("输出长度应在 32–512 token 之间")
     started = time.monotonic()
+    name = _backend(requested, messages)
     if name not in CACHE:
         tokenizer = load_tokenizer(str(PATHS[name]))
         model = _load_model(str(PATHS[name]))
         model.eval()
         CACHE[name] = (tokenizer, model)
     tokenizer, model = CACHE[name]
-    rendered = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+    if name == "translation_repaired":
+        source = _translation_source(messages[-1]["content"])
+        rendered = f"任务：请将下列文言文准确翻译为现代汉语，只输出译文。\n原文：{source}\n译文："
+    else:
+        rendered = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
     inputs = tokenizer(rendered, return_tensors="pt", add_special_tokens=False)
     if inputs.input_ids.shape[1] > 2048:
         raise ValueError("上下文超过 2048 token，请清空对话或缩短输入；本页面不静默截断")
@@ -75,7 +105,7 @@ def reply(payload):
     tokens = output[0, inputs.input_ids.shape[1]:]
     return {"response": tokenizer.decode(tokens, skip_special_tokens=True).strip(),
             "tokens": len(tokens), "seconds": round(time.monotonic() - started, 2),
-            "hit_limit": len(tokens) >= limit, "model": name}
+            "hit_limit": len(tokens) >= limit, "model": requested, "backend": name}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -97,7 +127,8 @@ class Handler(BaseHTTPRequestHandler):
         if self.headers.get("Host") not in {"127.0.0.1:17860", "localhost:17860"}:
             return self.send(403, {"error": "Localhost only"})
         if self.path == "/health":
-            return self.send(200, {"ready": True, "models": list(PATHS), "loaded": list(CACHE)})
+            return self.send(200, {"ready": True, "models": ["smart_repaired", *PATHS],
+                                   "loaded": list(CACHE)})
         if self.path != "/":
             return self.send(404, {"error": "Not found"})
         return self.send(200, (ROOT / "scripts/model_chat.html").read_bytes(), "text/html; charset=utf-8")

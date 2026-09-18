@@ -1,0 +1,17 @@
+{
+  "rows": 50439,
+  "requested_total_tokens": 50000000,
+  "achieved_tokens": {
+    "classical": 25000000,
+    "general_zh": 20312500,
+    "general_en": 4687500
+  },
+  "fractions": {
+    "classical": 0.5,
+    "general_zh": 0.40625,
+    "general_en": 0.09375
+  },
+  "tokenizer": ".cache\\huggingface\\models--Qwen--Qwen2.5-0.5B\\snapshots\\060db6499f32faf8b98477b0a26969ef7d8b9987",
+  "seed": 20260912,
+  "max_chunk_tokens": 2048
+}

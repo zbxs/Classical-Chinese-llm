@@ -1,0 +1,172 @@
+{
+  "tokenizers": {
+    "base": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    },
+    "cpt": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    },
+    "sft": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    },
+    "dpo": {
+      "vocabulary_equal_base": true,
+      "template_equal_base": true,
+      "eos": 151643,
+      "pad": 151643,
+      "im_end": 151645
+    }
+  },
+  "data": {
+    "total_train_rows": 100000,
+    "sample": {
+      "rows": 5000,
+      "prompt_ge_1024": 0,
+      "full_gt_1024": 0,
+      "completion_prefix_mismatch": 0,
+      "answer_lt_10_char": 518,
+      "im_end_in_retained_completion": 5000
+    },
+    "by_task": {
+      "old_to_modern": {
+        "rows": 1253,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 0,
+        "answer_lt_10_char": 56,
+        "im_end_in_retained_completion": 1253
+      },
+      "creation": {
+        "rows": 1261,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 0,
+        "answer_lt_10_char": 246,
+        "im_end_in_retained_completion": 1261
+      },
+      "appreciation": {
+        "rows": 1231,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 0,
+        "answer_lt_10_char": 71,
+        "im_end_in_retained_completion": 1231
+      },
+      "modern_to_old": {
+        "rows": 1255,
+        "prompt_ge_1024": 0,
+        "full_gt_1024": 0,
+        "completion_prefix_mismatch": 0,
+        "answer_lt_10_char": 145,
+        "im_end_in_retained_completion": 1255
+      }
+    },
+    "examples": {
+      "old_to_modern": [
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n翻译成现代文：\n此皆棋家之幽微也，不可不知也。",
+          "answer": "这都是棋家的深微之处，不能不认真了解。",
+          "prompt_tokens": 68,
+          "total_tokens": 84
+        },
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "将下列文言语段译为通顺、完整的白话文：\n官奴婢五十以上，免为庶人。",
+          "answer": "官家奴婢五十岁以上的，免去奴婢籍而为平民。",
+          "prompt_tokens": 63,
+          "total_tokens": 82
+        },
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "请把下面的文言文准确翻译成现代汉语：\n贺拔胜出为荆州刺史，启补骠骑长史。",
+          "answer": "贺拔胜出任荆州刺史，补授休之为骠骑长史。",
+          "prompt_tokens": 66,
+          "total_tokens": 86
+        }
+      ],
+      "creation": [
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请严格遵守体裁、主题、字数和关键词要求完成创作：\n茶通七窍开茅塞\n输出下联：",
+          "answer": "春满一壶净俗尘",
+          "prompt_tokens": 65,
+          "total_tokens": 74
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请严格遵守体裁、主题、字数和关键词要求完成创作：\n题目：寓长春道院春雨即事呈郑尊师二首 其一\n作诗：",
+          "answer": "南荣相距数寻间，满地春泥隔往还。夜雨暗添篱脚水，晓云浓掩树头山。修篁夹径宜增植，细草侵阶莫谩删。世虑纷然无止极，敢求大药驻衰颜。",
+          "prompt_tokens": 76,
+          "total_tokens": 142
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请按以下要求进行古典文学创作：\n老病畏多酌\n古诗续写，要求具有陆游的风格：",
+          "answer": "退闲愁夜行。市灯疏欲尽，楼月澹初生。露冷莎蛩咽，天寒塞雁征。归来差自喜，拥被听疏更。",
+          "prompt_tokens": 64,
+          "total_tokens": 107
+        }
+      ],
+      "appreciation": [
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请结合原文翻译并赏析下列作品，分析必须给出文本依据：\n文言文翻译：\n隆庆二年进士。",
+          "answer": "答案：隆庆二年的进士。",
+          "prompt_tokens": 64,
+          "total_tokens": 75
+        },
+        {
+          "source": "poetrymteb-appreciation",
+          "prompt": "请说明下文的主要内容、表达手法和思想感情，并引用原文作为依据：\n请判断这首诗的题材，并给出文本依据。\n水国西风小摇落，撩人羁绪乱如丝。大夫泽畔行吟处，司马江头送别时。尔辈何伤吾道在，此心惟有彼苍知。苍颜华发今如许，便挂衣冠已是迟。",
+          "answer": "贬谪诗，借景抒情。",
+          "prompt_tokens": 127,
+          "total_tokens": 138
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请结合原文翻译并赏析下列作品，分析必须给出文本依据：\n文言文翻译：\n日率，七千三百四十一。",
+          "answer": "答案：日率：七千三百四十一。",
+          "prompt_tokens": 66,
+          "total_tokens": 79
+        }
+      ],
+      "modern_to_old": [
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "请用符合古汉语习惯的表达重写下文：\n高宗说 ：刘光世军粮饷不足，如果突然转移，必然溃散，应先犒赏军队然后精简才成。 吕颐浩到镇江，刘光世军果然报告缺粮，吕颐浩上奏刘光世军每月消耗二千万缗，请求派官查验核实。",
+          "answer": "帝曰： 光世军粮不足，若骤移，必溃，先犒军而后料简可也。 颐浩至镇江，光世军果告乏，颐浩奏光世军月费二千万缗，乞差官考核。",
+          "prompt_tokens": 117,
+          "total_tokens": 176
+        },
+        {
+          "source": "historytrans-bidirectional",
+          "prompt": "请将下面的现代汉语改写为简洁自然的文言文：\n他对太尉卫公李德裕说了碧莲花的事。",
+          "answer": "话于太尉卫公李德裕。",
+          "prompt_tokens": 66,
+          "total_tokens": 78
+        },
+        {
+          "source": "troye-ancient-creation",
+          "prompt": "请用符合古汉语习惯的表达重写下文：\n武平末年，任仪同开府行参军、判集书省事。\n翻译成文言文：",
+          "answer": "武平末，仪同开府行参军、判集书省事。",
+          "prompt_tokens": 75,
+          "total_tokens": 95
+        }
+      ]
+    }
+  },
+  "inference": []
+}

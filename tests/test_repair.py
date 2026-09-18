@@ -4,6 +4,7 @@ from classical_llm.data.acquire import _task_from_instruction
 from classical_llm.data.sft import build_sft_dataset
 from classical_llm.training.common import set_assistant_end_token
 from classical_llm.utils.io import read_jsonl, write_jsonl
+from scripts.model_chat_server import _backend, _translation_source
 
 
 def test_translation_task_not_appreciation():
@@ -37,3 +38,22 @@ def test_existing_instruction_is_not_broadened(tmp_path):
     rows = list(read_jsonl(tmp_path / "sft/train.jsonl"))
     assert len(rows) == 1
     assert rows[0]["messages"][1]["content"] == prompt
+
+
+def test_plain_prompt_schema_is_unambiguous():
+    row = {"prompt_text": "任务：翻译。\n原文：學而時習之。\n译文：", "answer_text": "学习并时常温习。"}
+    assert row["prompt_text"].endswith("译文：")
+    assert "<|" not in row["prompt_text"] + row["answer_text"]
+
+
+def test_smart_chat_routes_only_explicit_translation_requests():
+    translated = [{"role": "user", "content": "请把“学而时习之”翻译成现代汉语。"}]
+    general = [{"role": "user", "content": "孔子生活在哪个时代？"}]
+    assert _backend("smart_repaired", translated) == "translation_repaired"
+    assert _backend("smart_repaired", general) == "official_instruct"
+    assert _translation_source(translated[0]["content"]) == "学而时习之"
+
+
+def test_translation_source_uses_content_line_without_instruction():
+    prompt = "请翻译为现代汉语：\n先帝创业未半而中道崩殂"
+    assert _translation_source(prompt) == "先帝创业未半而中道崩殂"
