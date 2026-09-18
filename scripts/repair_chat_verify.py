@@ -3,7 +3,6 @@ import json
 
 from repair_pilot import OUT, ROOT, evaluate
 
-
 if __name__ == "__main__":
     report = json.loads((ROOT / "reports/generated/repair_eos_pilot.json").read_text())
     if report["status"] != "complete_needs_review":
