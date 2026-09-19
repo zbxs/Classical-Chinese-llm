@@ -28,6 +28,12 @@ PATHS = {
 }
 PATHS["official_instruct"] = INSTRUCT
 PATHS["translation_repaired"] = ROOT / "outputs/repair-capability-v2/base_plain/best"
+PATHS["drgrpo_reference_proxy"] = (
+    ROOT / "outputs/preference-grpo-reference-v1/drgrpo_reference_proxy/best"
+)
+PATHS["drgrpo_constraint_aware"] = (
+    ROOT / "outputs/preference-grpo-reference-v1/drgrpo_constraint_aware/best"
+)
 verification = ROOT / "reports/generated/repair_chat_verification.json"
 if verification.exists() and json.loads(verification.read_text(encoding="utf-8"))["stop_rate"] >= 0.9:
     PATHS["sft_repaired"] = ROOT / "outputs/repair-eos-pilot-v1/eos_fix/best"
@@ -85,7 +91,11 @@ def reply(payload):
         model.eval()
         CACHE[name] = (tokenizer, model)
     tokenizer, model = CACHE[name]
-    if name == "translation_repaired":
+    if name in {
+        "translation_repaired",
+        "drgrpo_reference_proxy",
+        "drgrpo_constraint_aware",
+    }:
         source = _translation_source(messages[-1]["content"])
         rendered = f"任务：请将下列文言文准确翻译为现代汉语，只输出译文。\n原文：{source}\n译文："
     else:
