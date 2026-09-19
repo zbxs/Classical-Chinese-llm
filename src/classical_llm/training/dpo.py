@@ -28,6 +28,14 @@ def run_dpo(config_path: str) -> dict[str, Any]:
     dataset = load_json_dataset(config["dataset_path"], config.get("validation_path"))
     tokenizer = load_tokenizer(model_path)
     model = load_causal_model(model_path, config)
+    reference_model = None
+    if config.get("reference_model_name_or_path"):
+        reference_config = dict(config)
+        reference_config["model_name_or_path"] = config["reference_model_name_or_path"]
+        reference_model_path = resolve_model(reference_config)
+        reference_model = load_causal_model(reference_model_path, reference_config)
+        reference_model.requires_grad_(False)
+        reference_model.eval()
     has_eval = "validation" in dataset
     args = DPOConfig(
         **base_training_args(config, has_eval),
@@ -37,7 +45,7 @@ def run_dpo(config_path: str) -> dict[str, Any]:
     )
     trainer = DPOTrainer(
         model=model,
-        ref_model=None,
+        ref_model=reference_model,
         args=args,
         train_dataset=dataset["train"],
         eval_dataset=dataset.get("validation"),
