@@ -10,12 +10,13 @@
 | [HistoryTrans/Dataset](https://huggingface.co/datasets/HistoryTrans/Dataset) | MIT | 89087a1ea7ba831a34b9d3101281a6f1ff9334ea |
 | [PoetryMTEB](https://huggingface.co/datasets/PoetryMTEB/Appreciation-of-Chinese-Classical-Poetry) | CC-BY-NC-4.0 | a44edb49f175381e6343b18d561e3d3e734b51ec |
 | [TroyeML](https://huggingface.co/datasets/TroyeML/Ancient_Chinese_Study_252k) | Apache-2.0 | fcb5b55cc9b1d934063d833f31923b7e8acfc62d |
-| [Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B) | 需随基础模型许可核验 | 060db6499f32faf8b98477b0a26969ef7d8b9987 |
+| [Qwen2.5-0.5B](https://huggingface.co/Qwen/Qwen2.5-0.5B) | Apache-2.0 | 060db6499f32faf8b98477b0a26969ef7d8b9987 |
+| [Qwen2.5-7B-Instruct](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct) | Apache-2.0 | a09a35458c702b33eeacc393d103063234e8bc28；仅作自动裁判，门槛失败 |
 
 发布前须补齐对应许可原文/版权声明/署名；网页数据的底层内容权利以及聚合数据的来源须独立审查。PoetryMTEB 包含非商业限制，需保留署名、许可链接和修改说明，不能改标成自由商用。
 
 修改方式包括文本标准化、筛选去重、哈希切分、分块混配、模板指令与规则负例。保留 acquisition.json、配置、manifest。偏好格式未复制 license 字段，须按 source_id 回溯，缺字段不代表无限制；无法回溯的样本不直接发布。
 
-模型、输出和参考答案也需分别审查。自有代码许可证待所有者选择。本文件不是 LICENSE，私有备份不是已获许可的公开发行包。
+模型、输出和参考答案也需分别审查。本仓库自有代码以根目录 MIT License 发布；该许可证不重新授权第三方数据、基础模型、生成数据或 adapter。完整私有备份不是已获许可的公开发行包。
 
 PoetryMTEB 数据卡还列出出版物来源及 DeepSeek-V3.1 分析，不能把所有鉴赏参考答案称为人工金标准。TroyeML 是聚合数据，顶层 Apache 标签不能替代全部上游来源核验。

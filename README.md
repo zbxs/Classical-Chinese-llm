@@ -8,6 +8,8 @@
 
 **2026-09-19 DPO 复现实验：** 修正参考策略加载后，以最佳 `Base→clean plain SFT` 为策略与冻结参考模型，从该模型真实错误中构造 2,048/192 对训练/验证偏好数据，再训练 128 steps。虽然验证偏好准确率达到 96% 以上，checkpoint-64 与 checkpoint-128 的冻结翻译 chrF 分别只有 24.36 和 22.11，均低于起点 27.01；后者还重新出现不停止与重复。因此该 DPO 被明确否决，未部署到聊天服务。详见 `docs/DPO_REPAIR_V1.md` 与 `reports/generated/repair_dpo_v1.json`。
 
+**2026-09-19 偏好因果诊断与 Dr.GRPO 修复：** 固定 7B 裁判对 2,240 个偏好对进行正反顺序双评，共 4,480 次判断，位置一致率只有 59.96%，低于预注册的 70%；A 被选 2,583 次、B 仅 1,407 次。随后 200 对独立评分复核的一致率更低（38%）。因此这批自动偏好标签、DPO 因果消融和新 Reward Model 均被门槛阻止，没有通过降低门槛继续。改为从同一最佳 SFT 起点运行两条**不含偏好标签**的 64-step Dr.GRPO：参考代理控制组 chrF 27.011，未超过起点 27.013；约束感知组 chrF 27.233、停止率 100%、通用题 80%，通过预注册点门槛，但配对 bootstrap 95% 区间为 `[-0.216, +0.691]`，包含零，故仅作为人工盲评候选，不替换默认模型。详见 `docs/PREFERENCE_CAUSAL_PROTOCOL.md`、`reports/generated/preference_grpo_v1.json` 与 `reports/generated/preference_grpo_analysis.json`。
+
 2026-09-17 23:12（北京时间）完成三组 CPT、SFT、RM、DPO、GRPO，以及 Base/CPT/SFT/DPO/GRPO 五模型自动评测。每个模型回答同一组 400 道题，共 2,000 条生成结果；另有 15 组困惑度结果。人工盲评尚未进行。
 
 **这是包含负面结果的研究记录，不是已经验证有效的古文助手。** CPT 的通用中文困惑度改善，但古文困惑度没有改善；DPO 古文困惑度明显恶化；GRPO 与 SFT 接近。低训练损失、高偏好分类准确率不等于文学能力提高。不能将问题简单归因于数据量，需要继续核验数据质量、训练目标与量化/推理差异。
@@ -30,6 +32,9 @@
 | `outputs/evaluation/` | 逐题输出、评分、盲评表、困惑度 |
 | `reports/generated/results.json` | 实际训练元数据和最终自动指标 |
 | `reports/generated/final_audit.json` | 输出 ID、数量和题型核验 |
+| `data/preference-diagnosis-v1/` | 偏好裁判失败证据、位置偏差报告与无偏好 GRPO 数据清单 |
+| `reports/generated/preference_grpo_v1.json` | 两条无偏好标签 Dr.GRPO 的训练、冻结评测和接纳判定 |
+| `reports/generated/preference_grpo_analysis.json` | 128 条冻结样本的配对差值、bootstrap 区间和约束指标 |
 | `transfer/` | 私有备份，不提交 Git，不等于公开发行包 |
 
 路径说明不表示全部大文件已经上传 GitHub。数据、权重的公开分发须通过许可审查。
@@ -87,6 +92,8 @@
 | RM | 16,006 对，2 epochs，2,002 steps | 0.72 小时 | 0.0198 |
 | DPO | 16,006 对，1,001 steps | 3.80 小时 | 0.0678 |
 | GRPO | 2,001 steps | 57.35 小时 | 0.0113 |
+| Dr.GRPO 参考代理控制组 | 64 steps | 10.20 分钟 | 0.00027 |
+| Dr.GRPO 约束感知组 | 64 steps | 10.51 分钟 | 0.00099 |
 
 耗时为 Trainer 返回值，不包含全部准备、失败重试和评测；不同目标的 loss 不能横向排名。
 
@@ -144,13 +151,35 @@ PPL 越低越好；评测以 BF16 基座加载 adapter，训练使用 4-bit 基�
 
 训练本身看似正常：128-step 训练 loss 为 0.5827；checkpoint-64/128 的验证偏好准确率分别约 96.88%/96.35%，reward margin 分别约 0.311/0.413。它证明的是模型学会了这批 chosen/rejected 的排序，不证明语义忠实度提高。当前主要问题是参考译文本身可能含噪、用单参考 chrF 挖 hard negative 会偏向表面差异，以及仅用自动参考答案作为 chosen 会放大错配。两个 DPO checkpoint 均保留在服务器作审计，不作为推荐模型或默认服务。
 
+### 4.3 偏好失败因果诊断与无偏好标签 Dr.GRPO
+
+为区分“DPO 目标不适合”与“偏好标签不可用”，先对 repair DPO 的 2,048/192 个训练/验证对做独立质量门槛。固定 `Qwen2.5-7B-Instruct` revision，以贪心解码分别查看每对答案的正序和逆序版本。
+
+| 裁判协议 | 对数 / 调用数 | 一致率 | 高置信对 | 预注册门槛 | 结论 |
+|---|---:|---:|---:|---:|---|
+| 成对 A/B 双顺序评审 | 2,240 / 4,480 | 59.96% | 482 | ≥70% | 拒绝：明显首项偏差 |
+| 单候选独立评分双规约 pilot | 200 / 800 | 38.00% | 4 | ≥70% | 拒绝：绝对评分也不稳定 |
+
+首轮只有 27 次 JSON 解析失败（约 0.6%），但 A/B 胜者计数为 2,583/1,407，同一对在翻转后仍输出 A/A 的有 554 对、B/B 只有 46 对；因此问题不是简单的解析错误。按分项分数重新计算胜者，一致率仍只有 59.87%。这表明当前 7B 自动裁判不能为细粒度古译今偏好提供可信金标准。按预注册规则，后续 DPO 消融和基于该标签的 Reward Model 均停止；项目只能得出“当前偏好构造和裁判协议不可用”，不能外推成“古汉语领域不适合 DPO”。
+
+从该失败吸取的 GRPO 经验是：不再使用二元偏好或新 RM，而是在已冻结的 capability-repair v2 数据上比较可审计奖励。两组均从 `Base→clean plain SFT` 开始，使用相同 2,048/192 条 train/validation、相同 64 steps、`loss_type=dr_grpo`、`scale_rewards=false`、截断 completion 屏蔽和 4 个在线采样；只改变奖励构成。
+
+| 候选 | 翻译 chrF | 相对起点 | 配对 bootstrap 95% CI | 正常停止 | 替换字符 | 四字重复 | 通用题 | 点门槛 |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| 起点：Base→clean plain SFT | 27.013 | — | — | 100% | 0% | 0.265% | 80% | 基线 |
+| 参考代理控制组 | 27.011 | -0.002 | [-0.390, +0.385] | 100% | 0% | 0.223% | 80% | 未通过 |
+| 约束感知组 | **27.233** | **+0.221** | **[-0.216, +0.691]** | 100% | 0% | 0.261% | 80% | 通过，待人工盲评 |
+
+约束感知组降低单参考 chrF 权重，并加入数字/否定保留、源文照抄惩罚、非空、反重复和对称长度护栏。它在预注册的点估计标准下通过，128 条中相对起点 32 胜、77 平、19 负；但置信区间仍包含零，仅运行一个种子，而且精确照抄率从 2/128 变为 3/128，尚不能证明照抄惩罚达成目标。因此该 adapter 只进入人工盲评候选，默认聊天服务仍保持原双后端配置。
+
 ## 5. 故障与局限
 
 1. 首轮领域生成误读 messages，输入成为空值文本；旧生成评分作废，保存在 `outputs/evaluation_invalid_none_prompt_20260917/`。修复提示和参考提取后，五模型全部重跑，最终报告只汇总当前 evaluation 目录。
 2. 盲评表也曾漏读 messages，题目为 null；2026-09-18 修复导出代码，保留旧表并重建题目，不改变现有回答与自动指标。
 3. PyTorch 2.5 与 TRL 的 FSDPModule 导入名不兼容，采用单 GPU 导入兼容处理；不是 FSDP2/分布式支持。
-4. 首轮 DPO 明显退化；修正参考策略并改用真实模型错误后仍退化，说明问题不能只归因于 adapter 参考模型加载。GRPO 与 SFT 接近；仍需审查参考答案质量、偏好构造、奖励投机和量化/推理差异。
-5. 规则偏好、启发式任务分类、源数据质量和截断均限制结果；人工盲评尚未完成，不虚构分数。扩展消融也未全部执行。
+4. 首轮 DPO 明显退化；修正参考策略并改用真实模型错误后仍退化，且自动裁判未通过位置一致性门槛。问题不能只归因于 adapter 参考加载，也不能据此宣称 DPO 在整个古汉语领域无效。
+5. 约束感知 Dr.GRPO 只取得 +0.221 chrF 的单种子点提升，bootstrap 区间包含零，精确照抄率也未改善；它是待人工盲评候选，不是已证实的改进。
+6. 规则偏好、启发式任务分类、单参考答案质量、奖励投机、量化和 128-token 截断都限制结论；人工盲评尚未完成，不虚构分数。
 
 2026-09-18 保存权重核验：DPO/GRPO 的 336 个策略 adapter 张量全部与 SFT 不同，权重均有限；两者保存的 ref 分支 336 个张量与 SFT 完全一致。权重差 L2 范数分别约 3.074 和 0.310。因此不是简单的“没有保存任何更新”，GRPO 更新幅度较小；这仍不能代替运行时加载和训练目标的完整有效性核验。详见 `reports/generated/adapter_audit.json`。
 
@@ -186,12 +215,34 @@ python -m classical_llm.cli report --output reports/generated/results.json
 python scripts/update_readme_results.py
 ```
 
+偏好因果诊断和无偏好标签 Dr.GRPO 使用独立版本目录，不覆盖旧 DPO/GRPO：
+
+```bash
+# 首轮裁判位置偏差复核（读取已归档输出）
+python scripts/analyze_judge_position_bias.py
+
+# 独立评分小样本；质量门槛失败时以非零状态退出
+python scripts/judge_preferences_independent.py \
+  --model .cache/judges/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28 \
+  --pair-limit 200 \
+  --task-output data/preference-diagnosis-v1/judge-v2-pilot/tasks.jsonl \
+  --judge-output data/preference-diagnosis-v1/judge-v2-pilot/judge_output.jsonl
+
+# 两条不含偏好标签的 Dr.GRPO；会复用完整 checkpoint
+python scripts/grpo_reference_recovery_v1.py
+
+# 对 128 条冻结输出做配对 bootstrap 与约束指标分析
+python scripts/analyze_grpo_reference_results.py
+```
+
+首轮和 pilot 的失败输出是实验结果的一部分；不要删除、改名为“通过”或把 `min_consistency` 调低后继续训练。`preference_grpo_v1.json` 中的 `complete_accepted` 仅表示约束感知组通过预注册自动点门槛且可进入人工盲评，不表示已经部署。
+
 人工评分填写 `blinded_review.jsonl` 各维度 1–5 分；评分人不应查看 key 文件。用 `summarize-review` 汇总，未评分行不会变成已评分结果。
 
 ## 7. 发布与备份
 
 详见 `docs/DATA_LICENSES.md`。代码、第三方数据和模型是不同许可对象；含非商业限制的数据不能改标为无限制商用，采集清单的许可字段不能代替授权核验。
 
-完整实验先保留为私有备份，源码/配置/结果摘要单独准备公开。未核验大数据不自动上传。自有代码许可证尚待所有者选择，公开可见不等于授予开源许可。
+仓库自有代码采用 MIT License；第三方数据、基础模型、生成数据和 adapter 仍分别受各自许可约束，MIT 不对它们重新授权。源码、配置、审计清单和结果摘要可公开，未完成来源逐项许可核验的大数据与私有实验备份不自动上传。
 
 `scripts/finalize_artifacts.py` 核验 400×5 输出、5 组评分、15 组 PPL，保留旧盲评表后补齐题目，生成 `transfer/experiment-backup-20260918.tar.gz` 和 SHA-256。含数据、best adapters、日志、评测及代码；不含中间 checkpoint、环境、缓存、SSH 辅助文件；不删除服务器原文件。基础权重需另取固定快照；adapter 配置含服务器绝对路径，迁移时须明确加载相同基础模型。

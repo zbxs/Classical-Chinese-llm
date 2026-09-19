@@ -1,0 +1,107 @@
+{
+  "seed": 20260919,
+  "source": "/root/autodl-tmp/Classical-Chinese-llm/data/repair-dpo-v1",
+  "splits": {
+    "train": {
+      "count": 2048,
+      "chosen_length": {
+        "mean": 34.55029296875,
+        "median": 29.5,
+        "p05": 12.0,
+        "p95": 73.64999999999986
+      },
+      "rejected_length": {
+        "mean": 30.77978515625,
+        "median": 27.0,
+        "p05": 12.0,
+        "p95": 62.649999999999864
+      },
+      "chosen_longer_rate": 0.6806640625,
+      "chosen_1_5x_rate": 0.06640625,
+      "rejected_1_5x_rate": 0.00634765625,
+      "length_balanced_rate": 0.7265625,
+      "number_cases": 801,
+      "chosen_number_recall": {
+        "mean": 0.8829204295496431,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "rejected_number_recall": {
+        "mean": 0.8800249687890137,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "negation_cases": 558,
+      "chosen_negation_recall": {
+        "mean": 0.5884109916367981,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "rejected_negation_recall": {
+        "mean": 0.5870669056152927,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "difficulty_bands": {
+        "hard": 410,
+        "low": 614,
+        "medium": 1024
+      }
+    },
+    "validation": {
+      "count": 192,
+      "chosen_length": {
+        "mean": 33.3125,
+        "median": 28.5,
+        "p05": 12.0,
+        "p95": 69.79999999999995
+      },
+      "rejected_length": {
+        "mean": 29.833333333333332,
+        "median": 25.0,
+        "p05": 11.55,
+        "p95": 60.44999999999999
+      },
+      "chosen_longer_rate": 0.6979166666666666,
+      "chosen_1_5x_rate": 0.06770833333333333,
+      "rejected_1_5x_rate": 0.005208333333333333,
+      "length_balanced_rate": 0.6927083333333334,
+      "number_cases": 71,
+      "chosen_number_recall": {
+        "mean": 0.8450704225352113,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "rejected_number_recall": {
+        "mean": 0.8720657276995305,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "negation_cases": 59,
+      "chosen_negation_recall": {
+        "mean": 0.635593220338983,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "rejected_negation_recall": {
+        "mean": 0.7372881355932204,
+        "median": 1.0,
+        "p05": 0.0,
+        "p95": 1.0
+      },
+      "difficulty_bands": {
+        "hard": 31,
+        "low": 67,
+        "medium": 94
+      }
+    }
+  },
+  "judge_presentations": 4480
+}

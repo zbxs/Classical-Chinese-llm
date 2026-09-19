@@ -1,0 +1,20 @@
+{
+  "complete_pairs": 200,
+  "position_consistency_rate": 0.38,
+  "double_chosen_rate": 0.105,
+  "double_rejected_rate": 0.15,
+  "high_confidence_count": 4,
+  "outcome_counts": {
+    "chosen/chosen": 21,
+    "inconsistent": 124,
+    "rejected/rejected": 30,
+    "tie/tie": 25
+  },
+  "protocol": "independent-v2",
+  "pairs_requested": 200,
+  "parse_error_tasks": 0,
+  "utility_formula": "4*faithfulness + 2*completeness + fluency - 4*hallucination",
+  "tie_margin": 1.0,
+  "min_consistency": 0.7,
+  "passed": false
+}
