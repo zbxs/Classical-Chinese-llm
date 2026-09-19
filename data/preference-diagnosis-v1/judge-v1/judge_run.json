@@ -1,0 +1,13 @@
+{
+  "status": "complete",
+  "model": ".cache/judges/Qwen2.5-7B-Instruct/a09a35458c702b33eeacc393d103063234e8bc28",
+  "input": "/root/autodl-tmp/Classical-Chinese-llm/data/preference-diagnosis-v1/judge_input.jsonl",
+  "input_sha256": "837917faaf27cf8c60b362cb05d8e1236e2a2ada0d47b340e901d3670a5dcf1c",
+  "presentations": 4480,
+  "already_complete": 0,
+  "started_at": "2026-09-19T12:02:21.234878+00:00",
+  "batch_size": 8,
+  "max_new_tokens": 160,
+  "completed_presentations": 4480,
+  "completed_at": "2026-09-19T12:29:44.223173+00:00"
+}

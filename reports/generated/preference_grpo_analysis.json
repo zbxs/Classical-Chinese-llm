@@ -1,0 +1,61 @@
+{
+  "seed": 20260919,
+  "frozen_examples": 128,
+  "models": {
+    "base_plain": {
+      "count": 128,
+      "mean_chrf": 27.012890553429948,
+      "mean_critical_token_reward": 0.7536458333333333,
+      "mean_source_copy_penalty": -0.044266410985035136,
+      "exact_source_copy_rate": 0.015625,
+      "stop_rate": 1.0,
+      "replacement_rate": 0.0,
+      "mean_repetition": 0.0026513266832927807
+    },
+    "drgrpo_reference_proxy": {
+      "count": 128,
+      "mean_chrf": 27.01104517182875,
+      "mean_critical_token_reward": 0.768154761904762,
+      "mean_source_copy_penalty": -0.048013268111851005,
+      "exact_source_copy_rate": 0.0234375,
+      "stop_rate": 1.0,
+      "replacement_rate": 0.0,
+      "mean_repetition": 0.0022345891654914326
+    },
+    "drgrpo_constraint_aware": {
+      "count": 128,
+      "mean_chrf": 27.233475567493763,
+      "mean_critical_token_reward": 0.768154761904762,
+      "mean_source_copy_penalty": -0.048013268111851005,
+      "exact_source_copy_rate": 0.0234375,
+      "stop_rate": 1.0,
+      "replacement_rate": 0.0,
+      "mean_repetition": 0.0026142442326465
+    }
+  },
+  "paired_vs_base_plain": {
+    "drgrpo_reference_proxy": {
+      "paired_mean_chrf_delta": -0.0018453816011974947,
+      "paired_bootstrap_95_ci": [
+        -0.38960019337020035,
+        0.38539740543618184
+      ],
+      "wins": 27,
+      "ties": 79,
+      "losses": 22,
+      "positive_ci": false
+    },
+    "drgrpo_constraint_aware": {
+      "paired_mean_chrf_delta": 0.220585014063813,
+      "paired_bootstrap_95_ci": [
+        -0.21584754937990222,
+        0.6905694128981302
+      ],
+      "wins": 32,
+      "ties": 77,
+      "losses": 19,
+      "positive_ci": false
+    }
+  },
+  "interpretation_rule": "Acceptance uses the preregistered point thresholds; paired bootstrap intervals are reported as uncertainty and are not used to retroactively change those thresholds."
+}

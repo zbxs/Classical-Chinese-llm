@@ -1,0 +1,10 @@
+{
+  "seed": 20260919,
+  "source": "/root/autodl-tmp/Classical-Chinese-llm/data/repair-capability-v2",
+  "selection": "sha256 deterministic order",
+  "counts": {
+    "train": 2048,
+    "validation": 192
+  },
+  "contains_preference_labels": false
+}

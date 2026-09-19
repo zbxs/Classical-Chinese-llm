@@ -1,0 +1,331 @@
+{
+  "presentations": 4480,
+  "judgments": 4480,
+  "parse_error_count": 27,
+  "parse_error_rate": 0.0060267857142857146,
+  "missing_reason_count": 2965,
+  "missing_reason_rate": 0.6618303571428571,
+  "spurious_c_mention_count": 46,
+  "invalid_schema_count": 93,
+  "raw_winner_counts": {
+    "INVALID": 217,
+    "B": 1407,
+    "A": 2583,
+    "TIE": 264,
+    "A|INVALID": 1,
+    "A|B|TIE": 8
+  },
+  "raw_winner_by_order": {
+    "0": {
+      "B": 696,
+      "A": 1310,
+      "INVALID": 97,
+      "TIE": 132,
+      "A|B|TIE": 5
+    },
+    "1": {
+      "INVALID": 120,
+      "B": 711,
+      "A": 1273,
+      "TIE": 132,
+      "A|INVALID": 1,
+      "A|B|TIE": 3
+    }
+  },
+  "normalized_role_by_order": {
+    "0": {
+      "chosen": 1216,
+      "rejected": 790,
+      "invalid": 102,
+      "tie": 132
+    },
+    "1": {
+      "invalid": 124,
+      "chosen": 1194,
+      "rejected": 790,
+      "tie": 132
+    }
+  },
+  "raw_pair_patterns": {
+    "A/B": 633,
+    "B/A": 615,
+    "A/A": 554,
+    "A/INVALID": 69,
+    "TIE/TIE": 66,
+    "INVALID/A": 55,
+    "A/TIE": 51,
+    "TIE/A": 47,
+    "B/B": 46,
+    "INVALID/INVALID": 27,
+    "B/INVALID": 19,
+    "TIE/B": 16,
+    "INVALID/B": 15,
+    "B/TIE": 15,
+    "TIE/INVALID": 3,
+    "A|B|TIE/A": 2,
+    "A/A|B|TIE": 2,
+    "A|B|TIE/INVALID": 2,
+    "B/A|B|TIE": 1,
+    "A/A|INVALID": 1,
+    "A|B|TIE/B": 1
+  },
+  "score_derived": {
+    "formula": "4*faithfulness + 2*completeness + fluency - 4*hallucination",
+    "tie_margin": 1,
+    "position_consistency_rate": 0.5986607142857143,
+    "outcome_patterns": {
+      "chosen/chosen": 812,
+      "rejected/rejected": 448,
+      "chosen/rejected": 324,
+      "rejected/chosen": 302,
+      "tie/tie": 73,
+      "chosen/tie": 61,
+      "tie/chosen": 58,
+      "rejected/tie": 49,
+      "tie/rejected": 37,
+      "rejected/invalid": 21,
+      "chosen/invalid": 20,
+      "invalid/chosen": 16,
+      "invalid/invalid": 8,
+      "invalid/rejected": 6,
+      "tie/invalid": 4,
+      "invalid/tie": 1
+    }
+  },
+  "merged": {
+    "complete_pairs": 2240,
+    "position_consistency_rate": 0.5995535714285715,
+    "double_chosen_rate": 0.36473214285714284,
+    "double_rejected_rate": 0.1924107142857143,
+    "high_confidence_count": 482,
+    "outcome_counts": {
+      "chosen/chosen": 817,
+      "inconsistent": 897,
+      "invalid/invalid": 29,
+      "rejected/rejected": 431,
+      "tie/tie": 66
+    }
+  },
+  "inconsistent_pair_examples": [
+    {
+      "pair_id": "472e96e9727ec5417561aeacdbc47d8359ac8fc5da9e890a80920af2261b89cd",
+      "winner_roles": [
+        "rejected",
+        "invalid"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "29184bd56d05cd30c21e3284806fb2c8a0427e7d6a6269589ee4a86187ae4647",
+      "winner_roles": [
+        "rejected",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "88b6beaefc0b4c009ae7f05cd27106f628fe0e352f3705b5cfd9103074c28eef",
+      "winner_roles": [
+        "rejected",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        "B更忠实原文，无额外信息。"
+      ]
+    },
+    {
+      "pair_id": "021f08acea5583b5c23318d90a1e184cc737a06b974e62e00184eeb4d210e448",
+      "winner_roles": [
+        "chosen",
+        "rejected"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "b313786fa1d9bfff7ca486c74eb19198ef15310bd51794aa2fb244d8640deeb4",
+      "winner_roles": [
+        "invalid",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "bb7222cab3ca223af5980ec007b32fb528c5a65e70383ac0aaf2846ffb097741",
+      "winner_roles": [
+        "chosen",
+        "rejected"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "dde346ff7da78f3535065c2e7c0425031aef3c986b81713ba6cd4c25e04695f0",
+      "winner_roles": [
+        "chosen",
+        "rejected"
+      ],
+      "reasons": [
+        "A准确传达了原意，B将‘装狭’误译为‘舱小’且缺少否定词。",
+        ""
+      ]
+    },
+    {
+      "pair_id": "6a0dd1a2b95d7446870605a5309dd0668239d71f8233302fbb5c7d7333e89617",
+      "winner_roles": [
+        "invalid",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        "A更忠实原文，B有幻觉（改任官职）。"
+      ]
+    },
+    {
+      "pair_id": "c5020f76e206adef2916ec9499d5bc5a8714a4776fbd220c79fe095fb8cf57dc",
+      "winner_roles": [
+        "chosen",
+        "rejected"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "c21e81a0b47f57dc3e7f660ce40c81f1d25fc52b2b1f991571bfdc93c010371f",
+      "winner_roles": [
+        "chosen",
+        "tie"
+      ],
+      "reasons": [
+        "",
+        "两句译文均忠实原文且信息完整，略有流畅度差异但不影响结果。"
+      ]
+    },
+    {
+      "pair_id": "76854e04f1a8bb916d7760fe234833a07077dc06eb2f11409937c1f94e2221bd",
+      "winner_roles": [
+        "chosen",
+        "rejected"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "3148530775eb4491ae7539aaa6c3a7220a34fcc51ca8e817d896e2642511f6ae",
+      "winner_roles": [
+        "invalid",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "176b3606bfdfbd1d910ebc1a08270ecbe5cdff39e7258bdb0dfd57991f400172",
+      "winner_roles": [
+        "rejected",
+        "invalid"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "0bcb7c0895f11ff107102966219908e5df754f28b1a03ceb294a603b6443e4da",
+      "winner_roles": [
+        "chosen",
+        "invalid"
+      ],
+      "reasons": [
+        "A误译‘明主’为‘君主’，‘醲于用赏，约于用刑’未准确译出；B更贴近原文，虽有少量增词但更忠实原文。",
+        ""
+      ]
+    },
+    {
+      "pair_id": "a7ce0307e3ea91638a3d57232e540e836a79401d35622020d7f6568f460e4bb6",
+      "winner_roles": [
+        "rejected",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "30303b6353447b8e3d765ad28d14439addf17ec472de2e513202252e58af8ebb",
+      "winner_roles": [
+        "chosen",
+        "rejected"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "d3fb0a062fba938bf0ac7036b7b693c8bea6a4caa59590758cb175bac372a565",
+      "winner_roles": [
+        "rejected",
+        "tie"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "960438a652c9188eded0f6000a64a606d12581f96c16175c6f1c190b8c2a8ff0",
+      "winner_roles": [
+        "chosen",
+        "invalid"
+      ],
+      "reasons": [
+        "译文A准确，译文B无意义且有幻觉。",
+        "两译均失原意，A有部分信息，B为臆造。"
+      ]
+    },
+    {
+      "pair_id": "96993ff1ea439950cc0079b76e9a31750d23d129c0f635ae92a1d8ab4d0fb3d0",
+      "winner_roles": [
+        "rejected",
+        "chosen"
+      ],
+      "reasons": [
+        "",
+        ""
+      ]
+    },
+    {
+      "pair_id": "a3c620faa559337c360c1e9b5a850a1c29a27d4a55a68fe237a803dea54b5bac",
+      "winner_roles": [
+        "rejected",
+        "chosen"
+      ],
+      "reasons": [
+        "译文A更符合原文顺序，‘迎太白于东方’应为迎接太白星而非等待。",
+        "A更符合语序习惯，B‘披甲戴盔’非正式表达。"
+      ]
+    }
+  ]
+}

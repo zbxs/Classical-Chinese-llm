@@ -586,6 +586,112 @@
           "stopped": true
         }
       ]
+    },
+    "dpo_repair_v1_ckpt64": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 1.0,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.005508837005326209,
+        "mean_chrf": 24.358624146707417
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.85,
+        "stop_rate": 1.0
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "李元礼的父亲李楫，是金朝的商人州南仓使。",
+          "tokens": 18,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 25.652489421114232
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋朝末年，伊吾地区内附，设伊吾郡；隋朝灭亡后，李元吉在突厥居住。",
+          "tokens": 30,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 28.145597162805114
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 我担心沈鲤、朱赓会逼我。",
+          "tokens": 16,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 37.17009246185604
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而刘邦在楚国起兵，鞭笞天下，搜刮豪强，最终诛灭了项羽。",
+          "tokens": 25,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 10.275064441731107
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三角形有三条边。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 7,
+          "stopped": true
+        },
+        {
+          "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+          "expected": [
+            "否"
+          ],
+          "response": "不是。鲸鱼属于哺乳动物，而鱼类属于脊椎动物。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 16,
+          "stopped": true
+        }
+      ]
     }
   },
   "training": {

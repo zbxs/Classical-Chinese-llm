@@ -1,6 +1,6 @@
 """Verify the saved repair adapter under the chat server's BF16 load mode."""
+# ruff: noqa: I001
 import json
-
 from repair_pilot import OUT, ROOT, evaluate
 
 if __name__ == "__main__":

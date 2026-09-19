@@ -7,10 +7,11 @@ from pathlib import Path
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 import torch
+from trl.trainer.sft_trainer import DataCollatorForLanguageModeling
+
 from classical_llm.runtime import configure_project_environment
 from classical_llm.training.common import load_causal_model, load_tokenizer
 from classical_llm.utils.io import read_jsonl
-from trl.trainer.sft_trainer import DataCollatorForLanguageModeling
 
 configure_project_environment()
 torch.set_num_threads(4)

@@ -1,0 +1,441 @@
+{
+  "status": "complete_accepted",
+  "experiment": "preference-label-free Dr.GRPO after judge gate failure",
+  "baseline": {
+    "translation": {
+      "count": 128,
+      "stop_rate": 1.0,
+      "replacement_rate": 0.0,
+      "mean_repetition": 0.0026513266832927807,
+      "mean_chrf": 27.012890553429948
+    },
+    "general": {
+      "count": 20,
+      "pass_rate": 0.8,
+      "stop_rate": 1.0
+    },
+    "examples": [
+      {
+        "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+        "source": "且陛下所谓天授，非人力也。",
+        "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+        "response": "况且陛下所说的天命，不是人力所能改变的。",
+        "tokens": 13,
+        "stopped": true,
+        "replacement": false,
+        "repetition": 0.0,
+        "chrf": 19.46427679096149
+      },
+      {
+        "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+        "source": "父楫，金商州南仓使。",
+        "reference": "其父张楫，曾任金朝商州南仓使。",
+        "response": "父亲是金商州南仓使。",
+        "tokens": 10,
+        "stopped": true,
+        "replacement": false,
+        "repetition": 0.0,
+        "chrf": 31.245085444008392
+      },
+      {
+        "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+        "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+        "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+        "response": "隋末，伊吾内属，设伊吾郡；隋朝灭亡后，臣于突厥。",
+        "tokens": 24,
+        "stopped": true,
+        "replacement": false,
+        "repetition": 0.0,
+        "chrf": 16.743396670636667
+      },
+      {
+        "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+        "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+        "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+        "response": "又说： 我担心沈鲤、朱赓逼我。",
+        "tokens": 15,
+        "stopped": true,
+        "replacement": false,
+        "repetition": 0.0,
+        "chrf": 37.658551309948436
+      },
+      {
+        "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+        "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+        "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+        "response": "然而汉王起兵攻打巴、蜀，鞭笞天下，劫夺诸侯，最终诛灭了项羽。",
+        "tokens": 26,
+        "stopped": true,
+        "replacement": false,
+        "repetition": 0.0,
+        "chrf": 18.61099559498682
+      }
+    ],
+    "general_failures": [
+      {
+        "prompt": "红色和蓝色混合通常得到什么颜色？",
+        "expected": [
+          "紫"
+        ],
+        "response": "红色和蓝色混合通常得到橙色。",
+        "require_all": false,
+        "passed": false,
+        "tokens": 10,
+        "stopped": true
+      },
+      {
+        "prompt": "三角形有几条边？只回答数字。",
+        "expected": [
+          "3"
+        ],
+        "response": "三角形有三条边。",
+        "require_all": false,
+        "passed": false,
+        "tokens": 7,
+        "stopped": true
+      },
+      {
+        "prompt": "请给“快乐”写一个近义词。",
+        "expected": [
+          "高兴",
+          "愉快",
+          "欢乐"
+        ],
+        "response": "快乐。",
+        "require_all": false,
+        "passed": false,
+        "tokens": 3,
+        "stopped": true
+      },
+      {
+        "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+        "expected": [
+          "否"
+        ],
+        "response": "不是。鲸鱼属于哺乳动物，而鱼类属于脊椎动物。",
+        "require_all": false,
+        "passed": false,
+        "tokens": 16,
+        "stopped": true
+      }
+    ]
+  },
+  "data": {
+    "train": 2048,
+    "validation": 192
+  },
+  "judge_gate": {
+    "registered_position_consistency": 0.5995535714285715,
+    "registered_minimum": 0.7,
+    "independent_v2_pilot_consistency": 0.38,
+    "independent_v2_pilot_pairs": 200,
+    "preference_labels_accepted": false
+  },
+  "reward_model": {
+    "trained": false,
+    "reason": "judge quality gate failed; preference-derived RM prohibited"
+  },
+  "variants": {
+    "drgrpo_reference_proxy": {
+      "reward_functions": [
+        "reference_chrf",
+        "nonempty",
+        "anti_repetition",
+        "reference_length"
+      ],
+      "reward_weights": [
+        0.65,
+        0.1,
+        0.1,
+        0.15
+      ],
+      "hypothesis": "proxy-heavy control using reference overlap without preference labels"
+    },
+    "drgrpo_constraint_aware": {
+      "reward_functions": [
+        "reference_chrf",
+        "critical_token",
+        "source_copy_penalty",
+        "nonempty",
+        "anti_repetition",
+        "reference_length"
+      ],
+      "reward_weights": [
+        0.35,
+        0.2,
+        0.15,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "hypothesis": "reduce reliance on a single reference and explicitly protect numbers, negation, termination, repetition, length, and source-copy failure"
+    }
+  },
+  "training": {
+    "drgrpo_reference_proxy": {
+      "train_runtime": 612.1329,
+      "train_samples_per_second": 0.836,
+      "train_steps_per_second": 0.105,
+      "total_flos": 0.0,
+      "train_loss": 0.00026811970928974915,
+      "best_model_checkpoint": null
+    },
+    "drgrpo_constraint_aware": {
+      "train_runtime": 630.6724,
+      "train_samples_per_second": 0.812,
+      "train_steps_per_second": 0.101,
+      "total_flos": 0.0,
+      "train_loss": 0.0009941348116626614,
+      "best_model_checkpoint": null
+    }
+  },
+  "models": {
+    "drgrpo_reference_proxy": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 1.0,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.0022345891654914326,
+        "mean_chrf": 27.01104517182875
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.8,
+        "stop_rate": 1.0
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父亲是金商州南仓使。",
+          "tokens": 10,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 31.245085444008392
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，设伊吾郡；隋朝灭亡后，臣于突厥。",
+          "tokens": 24,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 16.743396670636667
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 我担心沈鲤、朱赓逼我。",
+          "tokens": 15,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 37.658551309948436
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而汉王起兵攻打巴、蜀，鞭打天下，劫夺诸侯，最终诛灭了项羽。",
+          "tokens": 26,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 18.61099559498682
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三角形有三条边。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 7,
+          "stopped": true
+        },
+        {
+          "prompt": "请给“快乐”写一个近义词。",
+          "expected": [
+            "高兴",
+            "愉快",
+            "欢乐"
+          ],
+          "response": "快乐。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 3,
+          "stopped": true
+        },
+        {
+          "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+          "expected": [
+            "否"
+          ],
+          "response": "不是。鲸鱼属于哺乳动物，而鱼类属于脊椎动物。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 16,
+          "stopped": true
+        }
+      ]
+    },
+    "drgrpo_constraint_aware": {
+      "translation": {
+        "count": 128,
+        "stop_rate": 1.0,
+        "replacement_rate": 0.0,
+        "mean_repetition": 0.0026142442326465,
+        "mean_chrf": 27.233475567493763
+      },
+      "general": {
+        "count": 20,
+        "pass_rate": 0.8,
+        "stop_rate": 1.0
+      },
+      "examples": [
+        {
+          "id": "21be9dab99e7c0f122624836e0569f6cdeae064e9dd7ad6be16a1d4c3852874f",
+          "source": "且陛下所谓天授，非人力也。",
+          "reference": "况且陛下的权力是上天赐予的。不是一般人力所能达到的。",
+          "response": "况且陛下所说的天命，不是人力所能改变的。",
+          "tokens": 13,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 19.46427679096149
+        },
+        {
+          "id": "f2d06b42447ab71507e0a1960168f14c5da5a632732bff39fef00fbbf361fd46",
+          "source": "父楫，金商州南仓使。",
+          "reference": "其父张楫，曾任金朝商州南仓使。",
+          "response": "父亲是金商州南仓使。",
+          "tokens": 10,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 31.245085444008392
+        },
+        {
+          "id": "225776db954a7b0da1408dd284540a1a22d7bc1109e251d3bdfc6100a4000c6b",
+          "source": "隋末，伊吾内属，置伊吾郡；隋乱，臣于突厥。",
+          "reference": "隋朝末年，伊吾归附，隋设置伊吾郡。隋朝大乱，改附突厥。",
+          "response": "隋末，伊吾内属，设伊吾郡；隋朝灭亡后，臣于突厥。",
+          "tokens": 24,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 16.743396670636667
+        },
+        {
+          "id": "85b05bc201b51c60c70c54f5baa45373527d4db8d406f072a0f985f9ac2fae98",
+          "source": "又谓： 一贯虑沈鲤、朱赓逼己。",
+          "reference": "又说： 沈一贯担心沈鲤、朱赓威逼自己。",
+          "response": "又说： 我担心沈鲤、朱赓逼我。",
+          "tokens": 15,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 37.658551309948436
+        },
+        {
+          "id": "27403b23574a98482796052a65cfb750db29da96304901fe06696bc6965aded9",
+          "source": "然汉王起巴、蜀，鞭笞天下，劫诸侯，遂诛项羽。",
+          "reference": "然而汉王从巴蜀发兵，争夺天下，制服诸侯，于是杀死了项籍。",
+          "response": "然而汉王起兵攻打巴、蜀，鞭打天下，劫夺诸侯，最终诛灭了项羽。",
+          "tokens": 26,
+          "stopped": true,
+          "replacement": false,
+          "repetition": 0.0,
+          "chrf": 18.61099559498682
+        }
+      ],
+      "general_failures": [
+        {
+          "prompt": "红色和蓝色混合通常得到什么颜色？",
+          "expected": [
+            "紫"
+          ],
+          "response": "红色和蓝色混合通常得到橙色。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 10,
+          "stopped": true
+        },
+        {
+          "prompt": "三角形有几条边？只回答数字。",
+          "expected": [
+            "3"
+          ],
+          "response": "三角形有三条边。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 7,
+          "stopped": true
+        },
+        {
+          "prompt": "请给“快乐”写一个近义词。",
+          "expected": [
+            "高兴",
+            "愉快",
+            "欢乐"
+          ],
+          "response": "快乐。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 3,
+          "stopped": true
+        },
+        {
+          "prompt": "请判断：鲸鱼是鱼类吗？先回答是或否。",
+          "expected": [
+            "否"
+          ],
+          "response": "不是。鲸鱼属于哺乳动物，而鱼类属于脊椎动物。",
+          "require_all": false,
+          "passed": false,
+          "tokens": 16,
+          "stopped": true
+        }
+      ]
+    }
+  },
+  "decision": {
+    "accepted": true,
+    "per_model": {
+      "drgrpo_reference_proxy": false,
+      "drgrpo_constraint_aware": true
+    },
+    "criteria": "chrF >= accepted base_plain, 100% stop, 0 replacement, repetition <= 0.5%, general pass rate >= accepted base_plain",
+    "requires_human_review": true
+  }
+}
